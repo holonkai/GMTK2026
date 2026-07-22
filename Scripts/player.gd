@@ -32,10 +32,19 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
-	# Direction player is faceing 
+	# Direction player is facing 
 	if direction == 1.0:
 		animated_sprite_2d.flip_h = false
 	elif direction == -1.0:
 		animated_sprite_2d.flip_h = true
 		
 	
+
+
+func _on_foot_sensor_body_entered(body: Node2D) -> void:
+	# Check if the body we touched is a TileMapLayer (the ground)
+	if body is TileMapLayer:
+		# Find the main scene manager and tell it to start the timer
+		# (Replace 'get_parent()' with your scene manager path if needed)
+		if get_parent().has_method("trigger_block_disappear"):
+			get_parent().trigger_block_disappear()
