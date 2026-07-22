@@ -1,0 +1,183 @@
+[gd_scene format=3 uid="uid://btcbgi5574htf"]
+
+[ext_resource type="Script" uid="uid://bjueiu7bqcg28" path="res://pause_menu.gd" id="1_hdmo1"]
+[ext_resource type="Texture2D" uid="uid://4q0ol4g55ptf" path="res://UI Box.png" id="2_nwcfo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nwcfo"]
+bg_color = Color(0.23031491, 0.23031494, 0.23031494, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p81d2"]
+texture = ExtResource("2_nwcfo")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mxa3g"]
+texture = ExtResource("2_nwcfo")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q2yj1"]
+texture = ExtResource("2_nwcfo")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="Animation" id="Animation_05uyy"]
+resource_name = "Fade In"
+length = 0.3
+step = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("MarginContainer/Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hdmo1"]
+resource_name = "Fade Out"
+length = 0.3
+step = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_p81d2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2nc7s"]
+_data = {
+&"Fade In": SubResource("Animation_05uyy"),
+&"Fade Out": SubResource("Animation_hdmo1"),
+&"RESET": SubResource("Animation_p81d2")
+}
+
+[node name="PauseMenu" type="Control" unique_id=1812448805]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hdmo1")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1811292352]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=1296392755]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nwcfo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=964502144]
+custom_minimum_size = Vector2(410.13, 239.745)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 41
+
+[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1210184098]
+texture_filter = 1
+custom_minimum_size = Vector2(55.81, 99.85)
+layout_mode = 2
+theme_override_font_sizes/font_size = 105
+theme_override_styles/normal = SubResource("StyleBoxTexture_p81d2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_p81d2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_p81d2")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_p81d2")
+theme_override_styles/focus = SubResource("StyleBoxTexture_p81d2")
+text = "Resume
+"
+
+[node name="Restart" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1782014907]
+custom_minimum_size = Vector2(55.81, 99.85)
+layout_mode = 2
+theme_override_font_sizes/font_size = 105
+theme_override_styles/normal = SubResource("StyleBoxTexture_mxa3g")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mxa3g")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mxa3g")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_mxa3g")
+theme_override_styles/focus = SubResource("StyleBoxTexture_mxa3g")
+text = "Restart
+"
+
+[node name="Title" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1024816708]
+custom_minimum_size = Vector2(55.81, 99.85)
+layout_mode = 2
+theme_override_font_sizes/font_size = 105
+theme_override_styles/normal = SubResource("StyleBoxTexture_q2yj1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_q2yj1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_q2yj1")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_q2yj1")
+theme_override_styles/focus = SubResource("StyleBoxTexture_q2yj1")
+text = "Main Menu
+"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=579170958]
+libraries/ = SubResource("AnimationLibrary_2nc7s")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Title" to="." method="_on_title_pressed"]
+[connection signal="current_animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_current_animation_changed"]
