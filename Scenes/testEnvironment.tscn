@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bqlkscgvyim1c"]
+
+[ext_resource type="PackedScene" uid="uid://bspglct55jmap" path="res://Scenes/playerMechanics.tscn" id="1_5o8re"]
+[ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="2_ksaap"]
+[ext_resource type="PackedScene" uid="uid://bn8bb76eywvns" path="res://Scenes/EyeEnemy.tscn" id="3_ksaap"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(608, 545)
+
+[node name="testEnvironment" type="Node2D" unique_id=256658666]
+
+[node name="Goblin" parent="." unique_id=2011999476 instance=ExtResource("3_ksaap")]
+position = Vector2(288, 289)
+
+[node name="playerMechanics" parent="." unique_id=900618559 instance=ExtResource("1_5o8re")]
+unique_name_in_owner = true
+position = Vector2(540, 288)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1051776547]
+position = Vector2(313, 421)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1269089463]
+position = Vector2(242.49998, 210.50003)
+scale = Vector2(4.789062, 4.289063)
+texture = ExtResource("2_ksaap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=945180868]
+position = Vector2(242, 209.5)
+shape = SubResource("RectangleShape2D_g4v7s")
