@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://7tkx810ifdxx"]
+
+[ext_resource type="Script" uid="uid://daatftchak3b2" path="res://menu.gd" id="1_i26rj"]
+[ext_resource type="Texture2D" uid="uid://4q0ol4g55ptf" path="res://UI Box.png" id="2_eiy7p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwc3d"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nwcfo"]
+texture = ExtResource("2_eiy7p")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p81d2"]
+texture = ExtResource("2_eiy7p")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2nc7s"]
+texture = ExtResource("2_eiy7p")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[node name="MainMenu" type="Control" unique_id=1252046952]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i26rj")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1413024408]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=2085573273]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xwc3d")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1448424323]
+custom_minimum_size = Vector2(410.13, 239.745)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 41
+
+[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1447778677]
+custom_minimum_size = Vector2(55.81, 99.85)
+layout_mode = 2
+theme_override_font_sizes/font_size = 105
+theme_override_styles/normal = SubResource("StyleBoxTexture_nwcfo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_nwcfo")
+theme_override_styles/hover = SubResource("StyleBoxTexture_nwcfo")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_nwcfo")
+theme_override_styles/focus = SubResource("StyleBoxTexture_nwcfo")
+text = "Play"
+
+[node name="Tutorial" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1032192580]
+custom_minimum_size = Vector2(55.81, 99.85)
+layout_mode = 2
+theme_override_font_sizes/font_size = 105
+theme_override_styles/normal = SubResource("StyleBoxTexture_p81d2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_p81d2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_p81d2")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_p81d2")
+theme_override_styles/focus = SubResource("StyleBoxTexture_p81d2")
+text = "Tutorial"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=2042711866]
+custom_minimum_size = Vector2(55.81, 99.85)
+layout_mode = 2
+theme_override_font_sizes/font_size = 105
+theme_override_styles/normal = SubResource("StyleBoxTexture_2nc7s")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2nc7s")
+theme_override_styles/hover = SubResource("StyleBoxTexture_2nc7s")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_2nc7s")
+theme_override_styles/focus = SubResource("StyleBoxTexture_2nc7s")
+text = "Quit
+"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
