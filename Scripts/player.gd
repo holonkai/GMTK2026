@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var jump_sfx: AudioStreamPlayer2D = $"../JumpSFX"
+@onready var pause_menu: Control = $PauseMenu
 
 
 const SPEED = 300.0
@@ -23,7 +24,7 @@ func _physics_process(delta: float) -> void:
 		animated_sprite_2d.animation = "jumping"
 		
 	# Jump
-	if Input.is_action_just_pressed("Jump") and is_on_floor():
+	if Input.is_action_just_pressed("Jump") and is_on_floor() and not pause_menu.paused:
 		velocity.y =JUMP_VELOCITY
 		jump_sfx.play(0.0)
 		

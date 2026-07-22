@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://btcbgi5574htf"]
 
 [ext_resource type="Script" uid="uid://bjueiu7bqcg28" path="res://pause_menu.gd" id="1_hdmo1"]
+[ext_resource type="FontFile" uid="uid://bnhsatuqlcu8t" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="2_05uyy"]
 [ext_resource type="Texture2D" uid="uid://4q0ol4g55ptf" path="res://UI Box.png" id="2_nwcfo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nwcfo"]
@@ -74,7 +75,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_p81d2"]
-length = 0.001
+length = 1.3666667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -144,7 +145,8 @@ theme_override_constants/separation = 41
 texture_filter = 1
 custom_minimum_size = Vector2(55.81, 99.85)
 layout_mode = 2
-theme_override_font_sizes/font_size = 105
+theme_override_fonts/font = ExtResource("2_05uyy")
+theme_override_font_sizes/font_size = 120
 theme_override_styles/normal = SubResource("StyleBoxTexture_p81d2")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_p81d2")
 theme_override_styles/hover = SubResource("StyleBoxTexture_p81d2")
@@ -156,7 +158,8 @@ text = "Resume
 [node name="Restart" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1782014907]
 custom_minimum_size = Vector2(55.81, 99.85)
 layout_mode = 2
-theme_override_font_sizes/font_size = 105
+theme_override_fonts/font = ExtResource("2_05uyy")
+theme_override_font_sizes/font_size = 120
 theme_override_styles/normal = SubResource("StyleBoxTexture_mxa3g")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_mxa3g")
 theme_override_styles/hover = SubResource("StyleBoxTexture_mxa3g")
@@ -168,7 +171,8 @@ text = "Restart
 [node name="Title" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1024816708]
 custom_minimum_size = Vector2(55.81, 99.85)
 layout_mode = 2
-theme_override_font_sizes/font_size = 105
+theme_override_fonts/font = ExtResource("2_05uyy")
+theme_override_font_sizes/font_size = 120
 theme_override_styles/normal = SubResource("StyleBoxTexture_q2yj1")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_q2yj1")
 theme_override_styles/hover = SubResource("StyleBoxTexture_q2yj1")
@@ -183,4 +187,4 @@ libraries/ = SubResource("AnimationLibrary_2nc7s")
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Title" to="." method="_on_title_pressed"]
-[connection signal="current_animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_current_animation_changed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
