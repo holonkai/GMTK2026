@@ -23,7 +23,6 @@ func _on_timer_timeout() -> void:
 	timer.start(3.0) # Timer
 
 func _update_active_layer() -> void:
-	print("Currently Active Layer Index: ", current_index, " | Node Name: ", layers[current_index].name)
 	for i in range(layers.size()):
 		var layer = layers[i]
 		var is_current = (i == current_index)
