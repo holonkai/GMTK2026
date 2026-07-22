@@ -109,6 +109,7 @@ _data = {
 
 [node name="PauseMenu" type="Control" unique_id=1812448805]
 modulate = Color(1, 1, 1, 0)
+z_index = 100
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -116,6 +117,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hdmo1")
+metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1811292352]
 layout_mode = 1
@@ -124,6 +126,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="MarginContainer" unique_id=1296392755]
 modulate = Color(1, 1, 1, 0)
