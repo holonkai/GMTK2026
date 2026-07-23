@@ -5,11 +5,15 @@ extends CharacterBody2D
 @onready var pause_menu: Control = $PauseMenu
 
 
-const SPEED = 300.0
-const ACCELERATION = 600
-const JUMP_VELOCITY = -850.0
+const SPEED := 300.0
+const FRICTION := 1200.0
+const ACCELERATION := 800.0
+const JUMP_VELOCITY := -1050.0
 
-
+func _ready() -> void:
+	pause_menu.hide()
+	
+	
 func _physics_process(delta: float) -> void:
 	# Animation
 	if velocity.x > 1 or velocity.x < -1:
@@ -33,10 +37,10 @@ func _physics_process(delta: float) -> void:
 	# Player direction
 	var direction := Input.get_axis("Left", "Right")
 	if direction:
-		velocity.x = move_toward(velocity.x, direction * SPEED, delta * ACCELERATION)
+		velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION)
 	#idle
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, FRICTION)
 	
 	move_and_slide()
 	
