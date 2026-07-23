@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://btcbgi5574htf"]
 
-[ext_resource type="Script" uid="uid://bjueiu7bqcg28" path="res://pause_menu.gd" id="1_hdmo1"]
+[ext_resource type="Script" uid="uid://bjueiu7bqcg28" path="res://Scripts/pause_menu.gd" id="1_hdmo1"]
 [ext_resource type="FontFile" uid="uid://bnhsatuqlcu8t" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="2_05uyy"]
 [ext_resource type="Texture2D" uid="uid://4q0ol4g55ptf" path="res://UI Box.png" id="2_nwcfo"]
 

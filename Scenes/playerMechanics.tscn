@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dy6e2q2uxy3yr" path="res://Assets/Images/Player/testPlayer.png" id="1_gqblx"]
 [ext_resource type="Script" uid="uid://dj1ugevvulse6" path="res://Scripts/player.gd" id="1_j0b00"]
 [ext_resource type="AudioStream" uid="uid://dchdjlsgyqmod" path="res://Assets/Sounds/Player/404793__owlstorm__retro-video-game-sfx-jump.wav" id="3_m4c5i"]
-[ext_resource type="PackedScene" uid="uid://btcbgi5574htf" path="res://pause_menu.tscn" id="4_wuhkc"]
+[ext_resource type="PackedScene" uid="uid://btcbgi5574htf" path="res://Scenes/pause_menu.tscn" id="4_wuhkc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gqblx"]
 atlas = ExtResource("1_gqblx")

@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://bqlkscgvyim1c"]
 
 [ext_resource type="PackedScene" uid="uid://bspglct55jmap" path="res://Scenes/playerMechanics.tscn" id="1_c24xt"]
-[ext_resource type="Script" uid="uid://mob1g3ynw1dv" path="res://Scenes/environment.gd" id="1_qyfso"]
+[ext_resource type="Script" uid="uid://mob1g3ynw1dv" path="res://Scripts/environment.gd" id="1_qyfso"]
 [ext_resource type="Texture2D" uid="uid://df28jk8ybooay" path="res://Assets/Images/Tilemap/Background1.png" id="2_dil0r"]
 [ext_resource type="Texture2D" uid="uid://da3p48neql8oy" path="res://Assets/Images/Tilemap/Background2.png" id="3_qyfso"]
 [ext_resource type="Texture2D" uid="uid://dsr5rn1ffgaot" path="res://Assets/Images/Tilemap/Background3.png" id="4_a6njs"]
@@ -10,9 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://b7h61itxg6yvy" path="res://Assets/Images/Tilemap/Background6.png" id="7_w4qwi"]
 [ext_resource type="Texture2D" uid="uid://d0d88llff27cf" path="res://Assets/Images/Tilemap/Decoratives.png" id="8_421qi"]
 [ext_resource type="Texture2D" uid="uid://bxoosp6d8cwg6" path="res://Assets/Images/Tilemap/MainLevBuild.png" id="9_visue"]
-[ext_resource type="Script" uid="uid://c4bppeskh3oip" path="res://Scenes/tile_map_layer.gd" id="10_dil0r"]
-[ext_resource type="Script" uid="uid://dvrt0s2ujpkmj" path="res://Scenes/layer_b.gd" id="12_4p6ii"]
-[ext_resource type="Script" uid="uid://duw07fia0uf1t" path="res://Scenes/layer_c.gd" id="13_168uk"]
+[ext_resource type="Script" uid="uid://c4bppeskh3oip" path="res://Scripts/tile_map_layer.gd" id="10_dil0r"]
+[ext_resource type="Script" uid="uid://dvrt0s2ujpkmj" path="res://Scripts/layer_b.gd" id="12_4p6ii"]
+[ext_resource type="Script" uid="uid://duw07fia0uf1t" path="res://Scripts/layer_c.gd" id="13_168uk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x0l8b"]
 texture = ExtResource("2_dil0r")

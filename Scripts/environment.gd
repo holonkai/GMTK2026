@@ -18,6 +18,7 @@ func trigger_block_disappear() -> void:
 
 func _on_timer_timeout() -> void:
 	current_index = (current_index + 1) % layers.size()
+	#want to update the layer mask first maybe an animation
 	_update_active_layer()
 	
 	timer.start(3.0) # Timer
@@ -27,7 +28,9 @@ func _update_active_layer() -> void:
 		var layer = layers[i]
 		var is_current = (i == current_index)
 		
+		#set the new layer to visible
 		layer.visible = is_current
+		
 		layer.set_process_mode(
 			PROCESS_MODE_INHERIT if is_current else PROCESS_MODE_DISABLED
 		)
