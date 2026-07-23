@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cwy5wj36qnh2s"]
+
+[ext_resource type="Texture2D" uid="uid://df28jk8ybooay" path="res://Assets/Images/Tilemap/Background1.png" id="1_eq6nc"]
+[ext_resource type="Texture2D" uid="uid://da3p48neql8oy" path="res://Assets/Images/Tilemap/Background2.png" id="2_bpugw"]
+[ext_resource type="Texture2D" uid="uid://dsr5rn1ffgaot" path="res://Assets/Images/Tilemap/Background3.png" id="3_gjjrj"]
+[ext_resource type="Texture2D" uid="uid://bgd6wu41g767g" path="res://Assets/Images/Tilemap/Background4.png" id="4_vvxqx"]
+[ext_resource type="Texture2D" uid="uid://b5kmvdmi4e5kh" path="res://Assets/Images/Tilemap/Background5.png" id="5_cdpnt"]
+[ext_resource type="PackedScene" uid="uid://bqlkscgvyim1c" path="res://Scenes/environment.tscn" id="6_bpugw"]
+[ext_resource type="PackedScene" uid="uid://bspglct55jmap" path="res://Scenes/playerMechanics.tscn" id="7_gjjrj"]
+
+[node name="background" type="Node2D" unique_id=1227561878]
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=121668227]
+repeat_size = Vector2(965, 0)
+repeat_times = 2
+
+[node name="Background1" type="Sprite2D" parent="Parallax2D" unique_id=176025505]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(965, 544)
+scale = Vector2(2, 3)
+texture = ExtResource("1_eq6nc")
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=1564819357]
+repeat_size = Vector2(965, 0)
+repeat_times = 2
+
+[node name="Background2" type="Sprite2D" parent="Parallax2D2" unique_id=1820209688]
+texture_filter = 1
+position = Vector2(965, 544)
+scale = Vector2(2, 3)
+texture = ExtResource("2_bpugw")
+
+[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=980844500]
+repeat_size = Vector2(965, 0)
+repeat_times = 2
+
+[node name="Background3" type="Sprite2D" parent="Parallax2D3" unique_id=2002814389]
+texture_filter = 1
+position = Vector2(965, 544)
+scale = Vector2(2, 3)
+texture = ExtResource("3_gjjrj")
+
+[node name="Parallax2D4" type="Parallax2D" parent="." unique_id=1284288075]
+repeat_size = Vector2(965, 0)
+repeat_times = 2
+ignore_camera_scroll = true
+
+[node name="Background4" type="Sprite2D" parent="Parallax2D4" unique_id=2091644314]
+texture_filter = 1
+position = Vector2(965, 544)
+scale = Vector2(2, 3)
+texture = ExtResource("4_vvxqx")
+
+[node name="Parallax2D5" type="Parallax2D" parent="." unique_id=717902472]
+repeat_size = Vector2(965, 0)
+repeat_times = 2
+
+[node name="Background5" type="Sprite2D" parent="Parallax2D5" unique_id=1989382776]
+texture_filter = 2
+position = Vector2(965, 544)
+scale = Vector2(2, 3)
+texture = ExtResource("5_cdpnt")
+
+[node name="Parallax2D6" type="Parallax2D" parent="." unique_id=1134236203]
+repeat_size = Vector2(965, 0)
+repeat_times = 2
+
+[node name="environment" parent="Parallax2D6" unique_id=256658666 instance=ExtResource("6_bpugw")]
+position = Vector2(702, 18)
+scale = Vector2(1.2, 1.2)
+
+[node name="playerMechanics" parent="." unique_id=900618559 instance=ExtResource("7_gjjrj")]
+position = Vector2(945, 539)
