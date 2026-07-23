@@ -63,11 +63,17 @@ scale = Vector2(2, 3)
 texture = ExtResource("5_cdpnt")
 
 [node name="Parallax2D6" type="Parallax2D" parent="." unique_id=1134236203]
-repeat_size = Vector2(965, 0)
+repeat_size = Vector2(1600, 0)
 
 [node name="environment" parent="Parallax2D6" unique_id=256658666 instance=ExtResource("6_bpugw")]
 position = Vector2(702, 18)
 scale = Vector2(1.2, 1.2)
+
+[node name="countdown" type="Label" parent="Parallax2D6/environment" unique_id=665639677]
+offset_left = 135.83333
+offset_top = 96.666664
+offset_right = 358.3333
+offset_bottom = 189.16666
 
 [node name="playerMechanics" parent="." unique_id=900618559 instance=ExtResource("7_gjjrj")]
 position = Vector2(956, 531)
