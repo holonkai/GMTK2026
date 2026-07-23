@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://bn8bb76eywvns"]
 
-[ext_resource type="Script" uid="uid://t6htdmbccbtg" path="res://Scripts/Enemy Scripts/eye_enemy.gd" id="1_rk1hq"]
+[ext_resource type="Script" uid="uid://d00v7kh56mbly" path="res://Scripts/health_component.gd" id="1_8vu1x"]
 [ext_resource type="Texture2D" uid="uid://s6gcfnefsjtb" path="res://Assets/Tiny Fantasy/Tiny Fantasy/Assets/BasicGoblin/BasicGoblin-Sheet.png" id="1_xm08b"]
 [ext_resource type="Texture2D" uid="uid://djqk72miw2rhh" path="res://Assets/Tiny Fantasy/Tiny Fantasy/Assets/Eye/Eye-Sheet.png" id="1_ywwwk"]
 [ext_resource type="Script" uid="uid://djan46kn5o0wl" path="res://Scripts/Enemy Scripts/movement_component.gd" id="2_xcvi8"]
+[ext_resource type="PackedScene" uid="uid://ns4pjpwqlru7" path="res://Scenes/hitbox.tscn" id="5_8vu1x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rk1hq"]
 atlas = ExtResource("1_ywwwk")
@@ -107,12 +108,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
-radius = 5.0
-
-[node name="EyeEnemy" type="CharacterBody2D" unique_id=2011999476 node_paths=PackedStringArray("movement_component") groups=["Enemy"]]
-script = ExtResource("1_rk1hq")
-movement_component = NodePath("MovementComponent")
+[node name="EyeEnemy" type="CharacterBody2D" unique_id=2011999476 groups=["Enemy"]]
+script = ExtResource("1_8vu1x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=482745873]
 texture_filter = 1
@@ -121,14 +118,20 @@ sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"Chase"
 autoplay = "Chase"
 
-[node name="MovementComponent" type="Node" parent="." unique_id=1262154729 node_paths=PackedStringArray("body")]
+[node name="MovementComponent" type="Node" parent="." unique_id=1262154729 node_paths=PackedStringArray("body", "sprite")]
 script = ExtResource("2_xcvi8")
 speed = 160
-acceleration = 100
+acceleration = 160
 body = NodePath("..")
+sprite = NodePath("../AnimatedSprite2D")
 metadata/_custom_type_script = "uid://djan46kn5o0wl"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=414015024]
-position = Vector2(5, 7)
-scale = Vector2(2.9629245, 2.9629245)
-shape = SubResource("CircleShape2D_g4v7s")
+[node name="Hitbox" parent="." unique_id=85957042 instance=ExtResource("5_8vu1x")]
+position = Vector2(6, 6)
+scale = Vector2(1.5958993, 1.5634406)
+damage = 50.0
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1933078463 node_paths=PackedStringArray("body")]
+script = ExtResource("1_8vu1x")
+body = NodePath("..")
+metadata/_custom_type_script = "uid://d00v7kh56mbly"

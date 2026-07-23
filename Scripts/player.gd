@@ -6,6 +6,7 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
+const ACCELERATION = 600
 const JUMP_VELOCITY = -850.0
 
 
@@ -32,7 +33,8 @@ func _physics_process(delta: float) -> void:
 	# Player direction
 	var direction := Input.get_axis("Left", "Right")
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = move_toward(velocity.x, direction * SPEED, delta * ACCELERATION)
+	#idle
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
