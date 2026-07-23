@@ -4,6 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://dchdjlsgyqmod" path="res://Assets/Sounds/Player/404793__owlstorm__retro-video-game-sfx-jump.wav" id="3_m4c5i"]
 [ext_resource type="Texture2D" uid="uid://byebe18b8pgqn" path="res://Assets/Images/Player/Elf Sprite Sheet.png" id="3_mf572"]
 [ext_resource type="PackedScene" uid="uid://btcbgi5574htf" path="res://Scenes/pause_menu.tscn" id="4_wuhkc"]
+[ext_resource type="Script" uid="uid://d00v7kh56mbly" path="res://Scripts/health_component.gd" id="5_mf572"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wuhkc"]
 atlas = ExtResource("3_mf572")
@@ -124,8 +125,15 @@ size = Vector2(74, 105)
 
 [node name="playerMechanics" type="Node2D" unique_id=900618559 groups=["Player"]]
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1851494002]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1851494002 groups=["Player"]]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_j0b00")
+
+[node name="HealthComponent" type="Node" parent="Player" unique_id=455821797 node_paths=PackedStringArray("body")]
+script = ExtResource("5_mf572")
+body = NodePath("..")
+metadata/_custom_type_script = "uid://d00v7kh56mbly"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=644404267]
 texture_filter = 1
@@ -136,7 +144,7 @@ animation = &"walking"
 autoplay = "idle"
 flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1867447142]
+[node name="HurtBox" type="CollisionShape2D" parent="Player" unique_id=1867447142]
 position = Vector2(10, -3.5)
 shape = SubResource("RectangleShape2D_g4v7s")
 
