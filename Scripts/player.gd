@@ -8,7 +8,7 @@ extends CharacterBody2D
 const SPEED := 300.0
 const FRICTION := 1200.0
 const ACCELERATION := 800.0
-const JUMP_VELOCITY := -1050.0
+const JUMP_VELOCITY := -1500.0
 
 func _ready() -> void:
 	pause_menu.hide()

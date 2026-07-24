@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bffgi67ies7ma"]
+
+[ext_resource type="PackedScene" uid="uid://cwy5wj36qnh2s" path="res://Scenes/background.tscn" id="2_wijl4"]
+[ext_resource type="PackedScene" uid="uid://bqlkscgvyim1c" path="res://Scenes/environment.tscn" id="6_sb2pt"]
+
+[node name="map" type="Node2D" unique_id=922154201]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2023610318]
+
+[node name="background" parent="Camera2D" unique_id=1227561878 instance=ExtResource("2_wijl4")]
+z_index = -1
+position = Vector2(-976, -540)
+
+[node name="environment" parent="Camera2D" unique_id=256658666 instance=ExtResource("6_sb2pt")]
+position = Vector2(-234, -439)
