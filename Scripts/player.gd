@@ -13,8 +13,12 @@ const JUMP_VELOCITY := -1500.0
 func _ready() -> void:
 	pause_menu.hide()
 	
+func _dead():
+	pass
 	
 func _physics_process(delta: float) -> void:
+	if global_position.y > 1600:  
+		get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
 	# Animation
 	if velocity.x > 1 or velocity.x < -1:
 		if Input.is_action_pressed("Run"):

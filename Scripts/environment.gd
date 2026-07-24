@@ -15,7 +15,6 @@ func _ready() -> void:
 
 # Countdown display
 func _process(_delta: float) -> void:
-	print("is_timer_active=", is_timer_active, " stopped=", timer.is_stopped())
 	if not timer.is_stopped():
 		countdown.text = "The Footholds will switch in %.1f" % timer.time_left
 	else:
@@ -45,3 +44,7 @@ func _update_active_layer() -> void:
 		layer.set_process_mode(
 			PROCESS_MODE_INHERIT if is_current else PROCESS_MODE_DISABLED
 		)
+
+
+func _on_bushes_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
