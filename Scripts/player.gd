@@ -12,6 +12,8 @@ const FRICTION := 1200.0
 const ACCELERATION := 800.0
 const JUMP_VELOCITY := -1500.0
 
+@export var damage: float
+@export var arrow_speed: float
 @export var loss_amount:= 50
 @export var gain_amount:= 100
 var old_health: float
@@ -24,6 +26,9 @@ func _dead():
 	pass
 	
 func _physics_process(delta: float) -> void:
+	var bow = get_node_or_null("Player Center/Bow")
+	bow.arrow_damage = damage
+	bow.arrow_speed = arrow_speed
 	if global_position.y > 1600:  
 		get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
 	# Animation

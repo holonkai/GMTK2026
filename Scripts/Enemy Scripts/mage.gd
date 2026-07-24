@@ -11,6 +11,8 @@ extends CharacterBody2D
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var health_bar: ProgressBar = $HealthBar
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var death_sfx: AudioStreamPlayer2D = $"Death SFX"
 
 var can_shoot:= true
 var fireball_speed:float 
@@ -57,6 +59,8 @@ func _on_jump_timer_timeout() -> void:
 	has_jumped = false
 
 func shoot():
+	audio_stream_player_2d.pitch_scale = randf_range(.8,1.2)
+	audio_stream_player_2d.play(0.0)
 	fire_rate.start()
 	can_shoot = false
 	var fire_ball_instance = fireball.instantiate()
@@ -71,6 +75,7 @@ func _on_fire_rate_timeout() -> void:
 
 
 func _on_health_component_died() -> void:
+	death_sfx.play(0.0)
 	animated_sprite_2d.play("Death")
 
 

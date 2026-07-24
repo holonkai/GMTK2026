@@ -15,5 +15,5 @@ func take_damage(damage: float) -> void:
 		died.emit()
 	health_changed.emit(max_health, current_health)
 	body.modulate = ("red")
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(0.5).timeout
 	body.modulate = ("white")
