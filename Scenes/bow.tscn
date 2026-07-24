@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b5g0encrr2osg"]
+
+[ext_resource type="Script" uid="uid://dd4stftwho3ti" path="res://Scripts/bow.gd" id="1_3cct7"]
+[ext_resource type="Texture2D" uid="uid://cniw2u7gjybvd" path="res://Assets/Images/Player/Hunter's Embrace.png" id="2_ju2r0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsxwm"]
+atlas = ExtResource("2_ju2r0")
+region = Rect2(0, 0, 17.579714, 32)
+
+[node name="Bow" type="Node2D" unique_id=1903631007]
+rotation = 3.1415927
+script = ExtResource("1_3cct7")
+arrow_speed = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=885497670]
+texture_filter = 1
+texture = SubResource("AtlasTexture_vsxwm")
+
+[node name="ArrowLoc" type="Marker2D" parent="." unique_id=1944630121]
+
+[node name="FireRate" type="Timer" parent="." unique_id=550545449]
+
+[connection signal="timeout" from="FireRate" to="." method="_on_fire_rate_timeout"]

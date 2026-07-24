@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dy6e2q2uxy3yr" path="res://Assets/Images/Player/testPlayer.png" id="1_gqblx"]
 [ext_resource type="Script" uid="uid://dj1ugevvulse6" path="res://Scripts/player.gd" id="1_j0b00"]
+[ext_resource type="PackedScene" uid="uid://b5g0encrr2osg" path="res://Scenes/bow.tscn" id="2_dawtv"]
 [ext_resource type="AudioStream" uid="uid://dchdjlsgyqmod" path="res://Assets/Sounds/Player/404793__owlstorm__retro-video-game-sfx-jump.wav" id="3_m4c5i"]
 [ext_resource type="PackedScene" uid="uid://btcbgi5574htf" path="res://Scenes/pause_menu.tscn" id="4_wuhkc"]
 [ext_resource type="Script" uid="uid://d00v7kh56mbly" path="res://Scripts/health_component.gd" id="5_mf572"]
@@ -164,6 +165,11 @@ size = Vector2(74, 105)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_j0b00")
+
+[node name="Bow" parent="Player" unique_id=1903631007 instance=ExtResource("2_dawtv")]
+position = Vector2(68, -3)
+rotation = -3.1415925
+scale = Vector2(3.8076184, 1.8366768)
 
 [node name="HealthComponent" type="Node" parent="Player" unique_id=455821797 node_paths=PackedStringArray("body")]
 script = ExtResource("5_mf572")

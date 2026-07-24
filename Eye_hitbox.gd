@@ -1,7 +1,5 @@
 extends Area2D
 
-@onready var ray_cast_2d: RayCast2D = $RayCast2D
-
 
 @export var damage := 5.0
 
