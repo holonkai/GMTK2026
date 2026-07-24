@@ -1,20 +1,13 @@
 [gd_scene format=3 uid="uid://hnkfomslccac"]
 
-[ext_resource type="PackedScene" uid="uid://bspglct55jmap" path="res://Scenes/playerMechanics.tscn" id="1_5o8re"]
 [ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="2_ksaap"]
-[ext_resource type="PackedScene" uid="uid://bn8bb76eywvns" path="res://Scenes/EyeEnemy.tscn" id="3_ksaap"]
+[ext_resource type="PackedScene" uid="uid://ck5lenyq7mwgt" path="res://Scenes/player.tscn" id="3_ksaap"]
+[ext_resource type="PackedScene" uid="uid://dsior8qg1eknc" path="res://Scenes/mage.tscn" id="5_cewgo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(608, 545)
+size = Vector2(558, 513)
 
 [node name="testEnvironment" type="Node2D" unique_id=256658666]
-
-[node name="Eye" parent="." unique_id=2011999476 instance=ExtResource("3_ksaap")]
-position = Vector2(288, 289)
-
-[node name="playerMechanics" parent="." unique_id=900618559 instance=ExtResource("1_5o8re")]
-unique_name_in_owner = true
-position = Vector2(540, 288)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1051776547]
 position = Vector2(313, 421)
@@ -26,5 +19,24 @@ scale = Vector2(4.789062, 4.289063)
 texture = ExtResource("2_ksaap")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=945180868]
-position = Vector2(242, 209.5)
+position = Vector2(242, 205.5)
 shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=363276960]
+position = Vector2(1043, 421)
+collision_mask = 7
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2" unique_id=780637523]
+position = Vector2(242.49998, 210.50003)
+scale = Vector2(4.789062, 4.289063)
+texture = ExtResource("2_ksaap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1873382814]
+position = Vector2(242, 205.5)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Mage" parent="." unique_id=747261156 instance=ExtResource("5_cewgo")]
+position = Vector2(362, 322)
+
+[node name="Player" parent="." unique_id=343586213 instance=ExtResource("3_ksaap")]
+position = Vector2(612, 343)

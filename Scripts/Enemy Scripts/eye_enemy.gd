@@ -1,11 +1,18 @@
 extends CharacterBody2D
 
 @export var movement_component : MovementComponent
+@export var health_component : HealthComponent
+@export var stats: EnemyStats
 @onready var hitbox: Area2D = $Hitbox
 @onready var hurtbox: CollisionShape2D = $Hurtbox
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+func _ready() -> void:
+	health_component.max_health = stats.health
+	health_component.current_health = health_component.max_health
+	movement_component.speed = stats.speed
+	print(health_component.max_health)
 
 func _process(delta: float) -> void:
 

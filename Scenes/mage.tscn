@@ -1,0 +1,198 @@
+[gd_scene format=3 uid="uid://dsior8qg1eknc"]
+
+[ext_resource type="Script" uid="uid://ddgwcgkyq5dul" path="res://Scripts/Enemy Scripts/mage.gd" id="1_0xdm5"]
+[ext_resource type="Texture2D" uid="uid://c6urymogptmc3" path="res://Assets/Tiny Fantasy/Tiny Fantasy/Assets/Warlock/Warlock-Sheet.png" id="1_y4der"]
+[ext_resource type="Script" uid="uid://bgd6bykhc4hw0" path="res://Scripts/Enemy Scripts/enemy_stats.gd" id="2_h01ui"]
+[ext_resource type="Script" uid="uid://bpcs1mt6yvu74" path="res://Scripts/Enemy Scripts/walking_movement_component.gd" id="3_bbshb"]
+[ext_resource type="Script" uid="uid://d00v7kh56mbly" path="res://Scripts/health_component.gd" id="5_254od"]
+
+[sub_resource type="Resource" id="Resource_bbshb"]
+script = ExtResource("2_h01ui")
+speed = 150.0
+jumpheight = 250
+projectile_speed = 400
+metadata/_custom_type_script = "uid://bgd6bykhc4hw0"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qippj"]
+atlas = ExtResource("1_y4der")
+region = Rect2(0, 192, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tf4tv"]
+atlas = ExtResource("1_y4der")
+region = Rect2(64, 192, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtp6b"]
+atlas = ExtResource("1_y4der")
+region = Rect2(128, 192, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7elky"]
+atlas = ExtResource("1_y4der")
+region = Rect2(192, 192, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ag7jq"]
+atlas = ExtResource("1_y4der")
+region = Rect2(256, 192, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rh4uj"]
+atlas = ExtResource("1_y4der")
+region = Rect2(320, 192, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qsol"]
+atlas = ExtResource("1_y4der")
+region = Rect2(384, 192, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ktto"]
+atlas = ExtResource("1_y4der")
+region = Rect2(448, 192, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cd1ky"]
+atlas = ExtResource("1_y4der")
+region = Rect2(512, 192, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsg52"]
+atlas = ExtResource("1_y4der")
+region = Rect2(576, 192, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_488au"]
+atlas = ExtResource("1_y4der")
+region = Rect2(640, 192, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xdm5"]
+atlas = ExtResource("1_y4der")
+region = Rect2(0, 37, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbshb"]
+atlas = ExtResource("1_y4der")
+region = Rect2(64, 37, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h01ui"]
+atlas = ExtResource("1_y4der")
+region = Rect2(128, 37, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_254od"]
+atlas = ExtResource("1_y4der")
+region = Rect2(192, 37, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qippj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tf4tv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtp6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7elky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ag7jq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rh4uj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qsol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ktto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cd1ky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nsg52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_488au")
+}],
+"loop": 0,
+"name": &"Death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xdm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbshb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h01ui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_254od")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_57qmd"]
+radius = 15.0
+height = 70.0
+
+[node name="Mage" type="CharacterBody2D" unique_id=747261156 groups=["Enemy"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_0xdm5")
+stats = SubResource("Resource_bbshb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=170300100]
+texture_filter = 1
+position = Vector2(-1, -39)
+scale = Vector2(3.6216254, 3.6216254)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"Death"
+autoplay = "default"
+frame = 10
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=142531710]
+position = Vector2(1, -35)
+shape = SubResource("CapsuleShape2D_57qmd")
+
+[node name="WalkingMovementComponent" type="Node" parent="." unique_id=68805774 node_paths=PackedStringArray("body", "sprite")]
+script = ExtResource("3_bbshb")
+body = NodePath("..")
+sprite = NodePath("../AnimatedSprite2D")
+metadata/_custom_type_script = "uid://bpcs1mt6yvu74"
+
+[node name="RightRayCast" type="RayCast2D" parent="." unique_id=718076533]
+position = Vector2(40, 0)
+collision_mask = 7
+collide_with_areas = true
+
+[node name="LeftRayCast" type="RayCast2D" parent="." unique_id=1987067311]
+position = Vector2(-46, 0)
+collision_mask = 7
+collide_with_areas = true
+
+[node name="MiddleRayCast" type="RayCast2D" parent="." unique_id=175159917]
+position = Vector2(1, 1)
+scale = Vector2(1, 9.400002)
+collision_mask = 7
+collide_with_areas = true
+
+[node name="Jump Timer" type="Timer" parent="." unique_id=1786019440]
+wait_time = 2.0
+
+[node name="Fire Rate" type="Timer" parent="." unique_id=1901128963]
+wait_time = 5.0
+
+[node name="Staff" type="Marker2D" parent="." unique_id=52054518]
+position = Vector2(34, -34.000004)
+scale = Vector2(-53.69639, -1.9874105)
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1747789606 node_paths=PackedStringArray("body")]
+script = ExtResource("5_254od")
+body = NodePath("..")
+metadata/_custom_type_script = "uid://d00v7kh56mbly"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Jump Timer" to="." method="_on_jump_timer_timeout"]
+[connection signal="timeout" from="Fire Rate" to="." method="_on_fire_rate_timeout"]
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]

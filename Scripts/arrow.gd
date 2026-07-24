@@ -13,7 +13,7 @@ func _physics_process(delta):
 	position += velocity * delta
 	
 	rotation = velocity.angle()
-	print(rotation)
+	
 
 
 func set_direction(dir: Vector2):
@@ -21,8 +21,6 @@ func set_direction(dir: Vector2):
 
 
 func _on_area_2d_body_entered(body: Node2D):
-	print("im hitting something")
-
 	var health_component = body.get_node_or_null("HealthComponent")
 	if health_component:
 		health_component.take_damage(damage)
