@@ -16,8 +16,10 @@ func _ready() -> void:
 # Countdown display
 func _process(_delta: float) -> void:
 	if not timer.is_stopped():
+		pass
 		countdown.text = "The Footholds will switch in %.1f" % timer.time_left
 	else:
+		pass
 		countdown.text = ""
 
 func trigger_block_disappear() -> void:

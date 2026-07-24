@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var jump_sfx: AudioStreamPlayer2D = $"../JumpSFX"
+@onready var jump_sfx: AudioStreamPlayer2D = $JumpSFX
 @onready var pause_menu: Control = $PauseMenu
 
 

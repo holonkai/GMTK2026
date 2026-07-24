@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bn8bb76eywvns"]
 
 [ext_resource type="Script" uid="uid://d00v7kh56mbly" path="res://Scripts/health_component.gd" id="1_8vu1x"]
+[ext_resource type="Script" uid="uid://t6htdmbccbtg" path="res://Scripts/Enemy Scripts/eye_enemy.gd" id="1_djke3"]
 [ext_resource type="Texture2D" uid="uid://s6gcfnefsjtb" path="res://Assets/Tiny Fantasy/Tiny Fantasy/Assets/BasicGoblin/BasicGoblin-Sheet.png" id="1_xm08b"]
 [ext_resource type="Texture2D" uid="uid://djqk72miw2rhh" path="res://Assets/Tiny Fantasy/Tiny Fantasy/Assets/Eye/Eye-Sheet.png" id="1_ywwwk"]
 [ext_resource type="Script" uid="uid://djan46kn5o0wl" path="res://Scripts/Enemy Scripts/movement_component.gd" id="2_xcvi8"]
@@ -29,6 +30,46 @@ region = Rect2(256, 32, 64, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_v0qoe"]
 atlas = ExtResource("1_ywwwk")
 region = Rect2(320, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7h1d"]
+atlas = ExtResource("1_ywwwk")
+region = Rect2(0, 166, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hc5e3"]
+atlas = ExtResource("1_ywwwk")
+region = Rect2(64, 166, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exhu6"]
+atlas = ExtResource("1_ywwwk")
+region = Rect2(128, 166, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0gns"]
+atlas = ExtResource("1_ywwwk")
+region = Rect2(192, 166, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35x4s"]
+atlas = ExtResource("1_ywwwk")
+region = Rect2(256, 166, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2owi"]
+atlas = ExtResource("1_ywwwk")
+region = Rect2(320, 166, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4rda"]
+atlas = ExtResource("1_ywwwk")
+region = Rect2(384, 166, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcb7e"]
+atlas = ExtResource("1_ywwwk")
+region = Rect2(448, 166, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nuo1i"]
+atlas = ExtResource("1_ywwwk")
+region = Rect2(512, 166, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_du5w8"]
+atlas = ExtResource("1_ywwwk")
+region = Rect2(576, 166, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xcvi8"]
 atlas = ExtResource("1_xm08b")
@@ -81,6 +122,41 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_l7h1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hc5e3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exhu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0gns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35x4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2owi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4rda")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcb7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nuo1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_du5w8")
+}],
+"loop": 0,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_xcvi8")
 }, {
 "duration": 1.0,
@@ -108,8 +184,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="EyeEnemy" type="CharacterBody2D" unique_id=2011999476 groups=["Enemy"]]
-script = ExtResource("1_8vu1x")
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+
+[node name="EyeEnemy" type="CharacterBody2D" unique_id=2011999476 node_paths=PackedStringArray("movement_component", "health_component") groups=["Enemy"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_djke3")
+movement_component = NodePath("MovementComponent")
+health_component = NodePath("HealthComponent")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=482745873]
 texture_filter = 1
@@ -135,3 +217,11 @@ damage = 50.0
 script = ExtResource("1_8vu1x")
 body = NodePath("..")
 metadata/_custom_type_script = "uid://d00v7kh56mbly"
+
+[node name="Hurtbox" type="CollisionShape2D" parent="." unique_id=782808838]
+position = Vector2(5, 5)
+scale = Vector2(2.3803787, 2.3743677)
+shape = SubResource("CircleShape2D_g4v7s")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]

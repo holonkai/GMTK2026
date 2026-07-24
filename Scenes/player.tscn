@@ -1,63 +1,63 @@
-[gd_scene format=3 uid="uid://bspglct55jmap"]
+[gd_scene format=3 uid="uid://ck5lenyq7mwgt"]
 
-[ext_resource type="Script" uid="uid://dj1ugevvulse6" path="res://Scripts/player.gd" id="1_j0b00"]
-[ext_resource type="PackedScene" uid="uid://b5g0encrr2osg" path="res://Scenes/bow.tscn" id="2_dawtv"]
-[ext_resource type="Script" uid="uid://vq3og2vrd3wo" path="res://Scripts/player_center.gd" id="2_sn7lv"]
-[ext_resource type="AudioStream" uid="uid://dchdjlsgyqmod" path="res://Assets/Sounds/Player/404793__owlstorm__retro-video-game-sfx-jump.wav" id="3_m4c5i"]
-[ext_resource type="Texture2D" uid="uid://byebe18b8pgqn" path="res://Assets/Images/Player/Elf Sprite Sheet.png" id="3_mf572"]
-[ext_resource type="PackedScene" uid="uid://btcbgi5574htf" path="res://Scenes/pause_menu.tscn" id="4_wuhkc"]
-[ext_resource type="Script" uid="uid://d00v7kh56mbly" path="res://Scripts/health_component.gd" id="5_mf572"]
+[ext_resource type="Script" uid="uid://dj1ugevvulse6" path="res://Scripts/player.gd" id="1_3smsa"]
+[ext_resource type="AudioStream" uid="uid://dchdjlsgyqmod" path="res://Assets/Sounds/Player/404793__owlstorm__retro-video-game-sfx-jump.wav" id="2_8erm5"]
+[ext_resource type="Script" uid="uid://vq3og2vrd3wo" path="res://Scripts/player_center.gd" id="3_f1ek2"]
+[ext_resource type="PackedScene" uid="uid://b5g0encrr2osg" path="res://Scenes/bow.tscn" id="4_tx1dd"]
+[ext_resource type="Texture2D" uid="uid://byebe18b8pgqn" path="res://Assets/Images/Player/Elf Sprite Sheet.png" id="5_gymyn"]
+[ext_resource type="Script" uid="uid://d00v7kh56mbly" path="res://Scripts/health_component.gd" id="6_pu2lt"]
+[ext_resource type="PackedScene" uid="uid://btcbgi5574htf" path="res://Scenes/pause_menu.tscn" id="7_ukyrk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wuhkc"]
-atlas = ExtResource("3_mf572")
+atlas = ExtResource("5_gymyn")
 region = Rect2(48, 0, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mf572"]
-atlas = ExtResource("3_mf572")
+atlas = ExtResource("5_gymyn")
 region = Rect2(0, 24, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dawtv"]
-atlas = ExtResource("3_mf572")
+atlas = ExtResource("5_gymyn")
 region = Rect2(16, 24, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sn7lv"]
-atlas = ExtResource("3_mf572")
+atlas = ExtResource("5_gymyn")
 region = Rect2(0, 0, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_57bys"]
-atlas = ExtResource("3_mf572")
+atlas = ExtResource("5_gymyn")
 region = Rect2(16, 0, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xc1ca"]
-atlas = ExtResource("3_mf572")
+atlas = ExtResource("5_gymyn")
 region = Rect2(32, 0, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gskg2"]
-atlas = ExtResource("3_mf572")
+atlas = ExtResource("5_gymyn")
 region = Rect2(48, 0, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cjc2d"]
-atlas = ExtResource("3_mf572")
+atlas = ExtResource("5_gymyn")
 region = Rect2(64, 0, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v2xu8"]
-atlas = ExtResource("3_mf572")
+atlas = ExtResource("5_gymyn")
 region = Rect2(0, 0, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_apmae"]
-atlas = ExtResource("3_mf572")
+atlas = ExtResource("5_gymyn")
 region = Rect2(16, 0, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yh84b"]
-atlas = ExtResource("3_mf572")
+atlas = ExtResource("5_gymyn")
 region = Rect2(32, 0, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8q2uq"]
-atlas = ExtResource("3_mf572")
+atlas = ExtResource("5_gymyn")
 region = Rect2(48, 0, 16, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u8bs1"]
-atlas = ExtResource("3_mf572")
+atlas = ExtResource("5_gymyn")
 region = Rect2(64, 0, 16, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
@@ -125,26 +125,24 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(30, 38)
 
-[node name="playerMechanics" type="Node2D" unique_id=900618559 groups=["Player"]]
-
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1851494002 groups=["Player"]]
+[node name="Player" type="CharacterBody2D" unique_id=343586213 groups=["Player"]]
 collision_layer = 2
 collision_mask = 5
-script = ExtResource("1_j0b00")
+script = ExtResource("1_3smsa")
 
-[node name="JumpSFX" type="AudioStreamPlayer2D" parent="Player" unique_id=576308363]
-stream = ExtResource("3_m4c5i")
+[node name="JumpSFX" type="AudioStreamPlayer2D" parent="." unique_id=1498919577]
+stream = ExtResource("2_8erm5")
 bus = &"SFX"
 
-[node name="Player Center" type="Node2D" parent="Player" unique_id=932752542]
-script = ExtResource("2_sn7lv")
+[node name="Player Center" type="Node2D" parent="." unique_id=992160113]
+script = ExtResource("3_f1ek2")
 
-[node name="Bow" parent="Player/Player Center" unique_id=1903631007 instance=ExtResource("2_dawtv")]
-position = Vector2(41, -9)
+[node name="Bow" parent="Player Center" unique_id=1903631007 instance=ExtResource("4_tx1dd")]
+position = Vector2(59.999996, -17)
 rotation = -3.1415925
 scale = Vector2(2.6476202, 1.0366771)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=644404267]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=727692499]
 texture_filter = 1
 position = Vector2(-1, 0)
 scale = Vector2(3, 3)
@@ -153,17 +151,17 @@ animation = &"walking"
 autoplay = "idle"
 flip_h = true
 
-[node name="HurtBox" type="CollisionShape2D" parent="Player" unique_id=1867447142]
+[node name="HurtBox" type="CollisionShape2D" parent="." unique_id=333263936]
 position = Vector2(2, -12)
 shape = SubResource("RectangleShape2D_g4v7s")
 
-[node name="HealthComponent" type="Node" parent="Player" unique_id=455821797 node_paths=PackedStringArray("body")]
-script = ExtResource("5_mf572")
+[node name="HealthComponent" type="Node" parent="." unique_id=450516253 node_paths=PackedStringArray("body")]
+script = ExtResource("6_pu2lt")
 body = NodePath("..")
 metadata/_custom_type_script = "uid://d00v7kh56mbly"
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=296068799]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=482203568]
 
-[node name="PauseMenu" parent="Player" unique_id=1812448805 instance=ExtResource("4_wuhkc")]
+[node name="PauseMenu" parent="." unique_id=1812448805 instance=ExtResource("7_ukyrk")]
 offset_top = -7.0
 offset_bottom = -7.0
