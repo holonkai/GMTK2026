@@ -4,8 +4,13 @@
 [ext_resource type="Script" uid="uid://t6htdmbccbtg" path="res://Scripts/Enemy Scripts/eye_enemy.gd" id="1_djke3"]
 [ext_resource type="Texture2D" uid="uid://s6gcfnefsjtb" path="res://Assets/Tiny Fantasy/Tiny Fantasy/Assets/BasicGoblin/BasicGoblin-Sheet.png" id="1_xm08b"]
 [ext_resource type="Texture2D" uid="uid://djqk72miw2rhh" path="res://Assets/Tiny Fantasy/Tiny Fantasy/Assets/Eye/Eye-Sheet.png" id="1_ywwwk"]
+[ext_resource type="Script" uid="uid://bgd6bykhc4hw0" path="res://Scripts/Enemy Scripts/enemy_stats.gd" id="2_8k66w"]
 [ext_resource type="Script" uid="uid://djan46kn5o0wl" path="res://Scripts/Enemy Scripts/movement_component.gd" id="2_xcvi8"]
 [ext_resource type="PackedScene" uid="uid://ns4pjpwqlru7" path="res://Scenes/hitbox.tscn" id="5_8vu1x"]
+
+[sub_resource type="Resource" id="Resource_bdh0s"]
+script = ExtResource("2_8k66w")
+metadata/_custom_type_script = "uid://bgd6bykhc4hw0"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rk1hq"]
 atlas = ExtResource("1_ywwwk")
@@ -187,11 +192,13 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 
 [node name="EyeEnemy" type="CharacterBody2D" unique_id=2011999476 node_paths=PackedStringArray("movement_component", "health_component") groups=["Enemy"]]
+z_index = 10
 collision_layer = 4
-collision_mask = 3
+collision_mask = 2
 script = ExtResource("1_djke3")
 movement_component = NodePath("MovementComponent")
 health_component = NodePath("HealthComponent")
+stats = SubResource("Resource_bdh0s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=482745873]
 texture_filter = 1
@@ -209,8 +216,8 @@ sprite = NodePath("../AnimatedSprite2D")
 metadata/_custom_type_script = "uid://djan46kn5o0wl"
 
 [node name="Hitbox" parent="." unique_id=85957042 instance=ExtResource("5_8vu1x")]
-position = Vector2(6, 6)
-scale = Vector2(1.5958993, 1.5634406)
+position = Vector2(5.0000005, 5)
+scale = Vector2(1.90471, 2.068311)
 damage = 50.0
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1933078463 node_paths=PackedStringArray("body")]
@@ -220,7 +227,7 @@ metadata/_custom_type_script = "uid://d00v7kh56mbly"
 
 [node name="Hurtbox" type="CollisionShape2D" parent="." unique_id=782808838]
 position = Vector2(5, 5)
-scale = Vector2(2.3803787, 2.3743677)
+scale = Vector2(1.2539845, 1.216749)
 shape = SubResource("CircleShape2D_g4v7s")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -28,7 +28,7 @@ position = Vector2(-0.41281796, 0.7173958)
 rotation = 1.5450814
 scale = Vector2(2.6866438, 2.6866438)
 collision_layer = 2
-collision_mask = 5
+collision_mask = 4
 
 [node name="Hitbox" type="CollisionShape2D" parent="Area2D" unique_id=622248252]
 position = Vector2(0, 1)

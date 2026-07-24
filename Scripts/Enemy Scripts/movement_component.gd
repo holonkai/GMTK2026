@@ -5,7 +5,7 @@ class_name MovementComponent extends Node
 @export var acceleration := 100
 @export var body : CharacterBody2D
 @export var sprite: AnimatedSprite2D
-@onready var player_mechanics: Node2D = $"../../playerMechanics"
+
 
 var can_move:= true
 var dir := Vector2.ZERO
@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 	else:
 		sprite.flip_h = true
 	#constantly update the direction to the player
-	dir = (player_mechanics.get_node("Player").global_position - body.global_position)
+	dir = (get_tree().get_first_node_in_group("Player").global_position - body.global_position)
 	if chasing and can_move:
 		
 		body.velocity = body.velocity.move_toward(dir.normalized() * speed, delta * acceleration)
@@ -34,5 +34,5 @@ func _process(delta: float) -> void:
 	
 func get_recent_position():
 	if chasing:
-		recent_pos = (player_mechanics.get_node("Player").global_position - body.global_position).normalized()
+		recent_pos = (get_tree().get_first_node_in_group("Player").global_position - body.global_position).normalized()
 		chasing = false

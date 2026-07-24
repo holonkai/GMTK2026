@@ -24,6 +24,7 @@ func _ready() -> void:
 	health_component.max_health = stats.health
 	health_component.current_health = health_component.max_health
 	fireball_speed = stats.projectile_speed
+	
 func _process(delta: float) -> void:
 	if not is_alive:
 		return

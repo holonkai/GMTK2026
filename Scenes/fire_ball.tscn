@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c6urymogptmc3" path="res://Assets/Tiny Fantasy/Tiny Fantasy/Assets/Warlock/Warlock-Sheet.png" id="1_qb2lp"]
 [ext_resource type="Script" uid="uid://cghqy64pm63mi" path="res://Scripts/Enemy Scripts/fire_ball.gd" id="1_x8156"]
+[ext_resource type="PackedScene" uid="uid://ns4pjpwqlru7" path="res://Scenes/hitbox.tscn" id="3_vxs2v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x8156"]
 atlas = ExtResource("1_qb2lp")
@@ -47,3 +48,8 @@ sprite_frames = SubResource("SpriteFrames_g4v7s")
 autoplay = "default"
 frame = 3
 frame_progress = 1.0
+
+[node name="Hitbox" parent="." unique_id=85957042 instance=ExtResource("3_vxs2v")]
+scale = Vector2(0.54000133, 0.43999895)
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
