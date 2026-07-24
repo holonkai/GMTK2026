@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://hnkfomslccac"]
 
 [ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="2_ksaap"]
+[ext_resource type="PackedScene" uid="uid://dvawy4s4k1064" path="res://Scenes/elf.tscn" id="3_brdh1"]
 [ext_resource type="PackedScene" uid="uid://ck5lenyq7mwgt" path="res://Scenes/player.tscn" id="3_ksaap"]
-[ext_resource type="PackedScene" uid="uid://dsior8qg1eknc" path="res://Scenes/mage.tscn" id="5_cewgo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(558, 513)
@@ -35,8 +35,8 @@ texture = ExtResource("2_ksaap")
 position = Vector2(242, 205.5)
 shape = SubResource("RectangleShape2D_g4v7s")
 
-[node name="Mage" parent="." unique_id=747261156 instance=ExtResource("5_cewgo")]
-position = Vector2(362, 322)
-
 [node name="Player" parent="." unique_id=343586213 instance=ExtResource("3_ksaap")]
 position = Vector2(612, 343)
+
+[node name="ELF" parent="." unique_id=1821168565 instance=ExtResource("3_brdh1")]
+position = Vector2(343, 333.00003)

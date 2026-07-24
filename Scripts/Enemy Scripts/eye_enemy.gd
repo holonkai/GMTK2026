@@ -5,17 +5,17 @@ extends CharacterBody2D
 @export var stats: EnemyStats
 @onready var hitbox: Area2D = $Hitbox
 @onready var hurtbox: CollisionShape2D = $Hurtbox
-
+@onready var health_bar: ProgressBar = $HealthBar
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
 	health_component.max_health = stats.health
 	health_component.current_health = health_component.max_health
 	movement_component.speed = stats.speed
-	print(health_component.max_health)
+	health_bar.max_value = health_component.max_health
 
 func _process(delta: float) -> void:
-
+	health_bar.value = health_component.current_health
 	if movement_component.dir.length() < 300:
 		movement_component.get_recent_position()
 	else:

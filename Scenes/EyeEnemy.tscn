@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bgd6bykhc4hw0" path="res://Scripts/Enemy Scripts/enemy_stats.gd" id="2_8k66w"]
 [ext_resource type="Script" uid="uid://djan46kn5o0wl" path="res://Scripts/Enemy Scripts/movement_component.gd" id="2_xcvi8"]
 [ext_resource type="PackedScene" uid="uid://ns4pjpwqlru7" path="res://Scenes/hitbox.tscn" id="5_8vu1x"]
+[ext_resource type="PackedScene" uid="uid://cqupesepa1ci2" path="res://Scenes/health_bar.tscn" id="8_yis2q"]
 
 [sub_resource type="Resource" id="Resource_bdh0s"]
 script = ExtResource("2_8k66w")
@@ -229,6 +230,12 @@ metadata/_custom_type_script = "uid://d00v7kh56mbly"
 position = Vector2(5, 5)
 scale = Vector2(1.2539845, 1.216749)
 shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="HealthBar" parent="." unique_id=1153427640 instance=ExtResource("8_yis2q")]
+offset_left = -7.000001
+offset_top = -21.000002
+offset_right = -3.000001
+offset_bottom = 5.999998
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]

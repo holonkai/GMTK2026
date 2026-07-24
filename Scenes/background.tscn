@@ -6103,6 +6103,7 @@ sources/2 = SubResource("TileSetAtlasSource_jieww")
 script = ExtResource("1_bdh0s")
 
 [node name="SpawnRate" type="Timer" parent="EnemySpawner" unique_id=933458383]
+wait_time = 5.0
 autostart = true
 
 [node name="Player" parent="." unique_id=343586213 instance=ExtResource("1_7ys8v")]

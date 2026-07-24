@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://m1gnp3aphrlu"]
+
+[ext_resource type="Script" uid="uid://cghqy64pm63mi" path="res://Scripts/Enemy Scripts/fire_ball.gd" id="1_bebyp"]
+[ext_resource type="Texture2D" uid="uid://cniw2u7gjybvd" path="res://Assets/Images/Player/Hunter's Embrace.png" id="2_bpa0a"]
+[ext_resource type="PackedScene" uid="uid://ns4pjpwqlru7" path="res://Scenes/hitbox.tscn" id="3_682ii"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4v7s"]
+atlas = ExtResource("2_bpa0a")
+region = Rect2(18.024567, 4.8368874, 7.567314, 20.8101)
+
+[node name="EnemyArrow" type="Node2D" unique_id=1804428398]
+scale = Vector2(2.8839922, 3.0709667)
+script = ExtResource("1_bebyp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1553067477]
+z_index = 10
+texture_filter = 1
+position = Vector2(0, -2)
+texture = SubResource("AtlasTexture_g4v7s")
+
+[node name="Hitbox" parent="Sprite2D" unique_id=85957042 instance=ExtResource("3_682ii")]
+scale = Vector2(0.39999807, 1)
+
+[connection signal="body_entered" from="Sprite2D/Hitbox" to="." method="_on_hitbox_body_entered"]

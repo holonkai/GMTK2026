@@ -3,17 +3,18 @@ extends Node2D
 #preloads the enemies
 const MAGE = preload("res://Scenes/mage.tscn")
 const EYE = preload("res://Scenes/EyeEnemy.tscn")
+const ELF = preload("res://Scenes/elf.tscn")
 
 var enemies := []
 #puts all the enemies in an array
 func _ready() -> void:
-	enemies = [MAGE, EYE]
+	enemies = [MAGE, EYE, ELF]
 
 @onready var spawn_rate: Timer = $SpawnRate
 
 func spawn_enemy() -> void:
 	#random enemy and spawns it
-	var i = randi_range(0, len(enemies) -1)
+	var i = randi_range(0, len(enemies) - 1)
 	var enemy = enemies[i].instantiate()
 	add_child(enemy)
 	#puts the enemy at a random distance from the player

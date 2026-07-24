@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cqupesepa1ci2"]
+
+[sub_resource type="Theme" id="Theme_57qmd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7numd"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fcnqv"]
+bg_color = Color(1, 0, 0, 1)
+
+[node name="HealthBar" type="ProgressBar" unique_id=1153427640]
+texture_filter = 1
+offset_right = 4.0
+offset_bottom = 27.0
+rotation = -1.5737197
+theme = SubResource("Theme_57qmd")
+theme_override_styles/background = SubResource("StyleBoxFlat_7numd")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fcnqv")
+value = 100.0
+rounded = true
+fill_mode = 2
+show_percentage = false
