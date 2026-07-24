@@ -18,6 +18,8 @@ var arrow = preload("res://Scenes/enemy_arrow.tscn")
 var is_alive:= true
 var has_jumped:= false
 
+var gold_give: int
+var gold_take: int
 func _ready() -> void:
 	walking_movement_component.SPEED = stats.speed
 	walking_movement_component.JUMPHEIGHT = stats.jumpheight
@@ -26,6 +28,7 @@ func _ready() -> void:
 	health_component.current_health = health_component.max_health
 	arrow_speed = stats.projectile_speed
 	health_bar.max_value = health_component.max_health
+	gold_give = stats.gold_drop
 func _process(delta: float) -> void:
 	health_bar.value = health_component.current_health
 	if not is_alive:
@@ -65,6 +68,7 @@ func shoot():
 
 func _on_health_component_died() -> void:
 	is_alive = false
+	get_tree().get_first_node_in_group("Player").get_node_or_null("GoldManager").gain_gold(gold_give)
 	animated_sprite_2d.play("Death")
 
 

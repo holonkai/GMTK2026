@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://byebe18b8pgqn" path="res://Assets/Images/Player/Elf Sprite Sheet.png" id="5_gymyn"]
 [ext_resource type="Script" uid="uid://d00v7kh56mbly" path="res://Scripts/health_component.gd" id="6_pu2lt"]
 [ext_resource type="PackedScene" uid="uid://btcbgi5574htf" path="res://Scenes/pause_menu.tscn" id="7_ukyrk"]
+[ext_resource type="Script" uid="uid://ctwimxcuoswnu" path="res://Scripts/gold_manager.gd" id="8_8erm5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wuhkc"]
 atlas = ExtResource("5_gymyn")
@@ -165,3 +166,9 @@ metadata/_custom_type_script = "uid://d00v7kh56mbly"
 [node name="PauseMenu" parent="." unique_id=1812448805 instance=ExtResource("7_ukyrk")]
 offset_top = -7.0
 offset_bottom = -7.0
+
+[node name="GoldManager" type="Node2D" parent="." unique_id=838716076]
+script = ExtResource("8_8erm5")
+
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
+[connection signal="health_changed" from="HealthComponent" to="." method="_on_health_component_health_changed"]
