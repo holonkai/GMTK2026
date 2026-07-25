@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://7tkx810ifdxx"]
 
 [ext_resource type="Script" uid="uid://daatftchak3b2" path="res://Scripts/menu.gd" id="1_i26rj"]
+[ext_resource type="FontFile" uid="uid://bnhsatuqlcu8t" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="2_8saeu"]
 [ext_resource type="Texture2D" uid="uid://4q0ol4g55ptf" path="res://UI Box.png" id="2_eiy7p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwc3d"]
@@ -26,6 +27,14 @@ texture_margin_left = 16.0
 texture_margin_top = 16.0
 texture_margin_right = 16.0
 texture_margin_bottom = 16.0
+
+[sub_resource type="Animation" id="Animation_8saeu"]
+resource_name = "mainmenu"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ghw46"]
+_data = {
+&"mainmenu": SubResource("Animation_8saeu")
+}
 
 [node name="MainMenu" type="Control" unique_id=1252046952]
 layout_mode = 3
@@ -58,6 +67,7 @@ theme_override_constants/separation = 41
 [node name="Resume" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1447778677]
 custom_minimum_size = Vector2(55.81, 99.85)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8saeu")
 theme_override_font_sizes/font_size = 105
 theme_override_styles/normal = SubResource("StyleBoxTexture_nwcfo")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_nwcfo")
@@ -69,6 +79,7 @@ text = "Play"
 [node name="Tutorial" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1032192580]
 custom_minimum_size = Vector2(55.81, 99.85)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8saeu")
 theme_override_font_sizes/font_size = 105
 theme_override_styles/normal = SubResource("StyleBoxTexture_p81d2")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_p81d2")
@@ -80,6 +91,7 @@ text = "Tutorial"
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=2042711866]
 custom_minimum_size = Vector2(55.81, 99.85)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8saeu")
 theme_override_font_sizes/font_size = 105
 theme_override_styles/normal = SubResource("StyleBoxTexture_2nc7s")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_2nc7s")
@@ -88,6 +100,12 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_2nc7s")
 theme_override_styles/focus = SubResource("StyleBoxTexture_2nc7s")
 text = "Quit
 "
+
+[node name="HighScoreLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1529510173]
+layout_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=569245411]
+libraries/ = SubResource("AnimationLibrary_ghw46")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]

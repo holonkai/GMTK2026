@@ -21,6 +21,7 @@ func _process(_delta: float) -> void:
 	else:
 		pass
 		countdown.text = ""
+		
 
 func trigger_block_disappear() -> void:
 	if not is_timer_active:
@@ -46,7 +47,3 @@ func _update_active_layer() -> void:
 		layer.set_process_mode(
 			PROCESS_MODE_INHERIT if is_current else PROCESS_MODE_DISABLED
 		)
-
-
-func _on_bushes_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
