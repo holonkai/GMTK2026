@@ -41,7 +41,7 @@ animations = [{
 }]
 
 [node name="FireBall" type="Node2D" unique_id=1129660798]
-scale = Vector2(1.8028172, 1.8028172)
+scale = Vector2(3.8028183, 3.8028183)
 script = ExtResource("1_x8156")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1122308400]
@@ -53,5 +53,6 @@ frame_progress = 1.0
 
 [node name="Hitbox" parent="." unique_id=85957042 instance=ExtResource("3_vxs2v")]
 scale = Vector2(0.54000133, 0.43999895)
+damage = 30.0
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

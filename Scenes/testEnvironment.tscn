@@ -5,6 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://ck5lenyq7mwgt" path="res://Scenes/player.tscn" id="3_ksaap"]
 [ext_resource type="PackedScene" uid="uid://bn8bb76eywvns" path="res://Scenes/EyeEnemy.tscn" id="4_cewgo"]
 [ext_resource type="PackedScene" uid="uid://dsior8qg1eknc" path="res://Scenes/mage.tscn" id="5_7isdk"]
+[ext_resource type="PackedScene" uid="uid://dcomn756bmoao" path="res://Scenes/health_drop.tscn" id="6_7isdk"]
+[ext_resource type="PackedScene" uid="uid://cia1rwflajx1g" path="res://Scenes/speed.tscn" id="7_chys4"]
+[ext_resource type="PackedScene" uid="uid://d0hbsn8nrhtfh" path="res://Scenes/double_jump.tscn" id="8_w3eny"]
+[ext_resource type="PackedScene" uid="uid://cvychnigncamp" path="res://Scenes/damage.tscn" id="9_vl15n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(558, 513)
@@ -48,3 +52,15 @@ position = Vector2(213, 179)
 
 [node name="Mage" parent="." unique_id=747261156 instance=ExtResource("5_7isdk")]
 position = Vector2(1520, 353)
+
+[node name="HealthDrop" parent="." unique_id=1419943100 instance=ExtResource("6_7isdk")]
+position = Vector2(1079, 326)
+
+[node name="speed" parent="." unique_id=511438704 instance=ExtResource("7_chys4")]
+position = Vector2(1187, 325)
+
+[node name="Double Jump" parent="." unique_id=2117770791 instance=ExtResource("8_w3eny")]
+position = Vector2(1290.9999, 326)
+
+[node name="Damage" parent="." unique_id=1233642440 instance=ExtResource("9_vl15n")]
+position = Vector2(1399, 315)

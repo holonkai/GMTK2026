@@ -139,7 +139,7 @@ height = 70.0
 
 [node name="Mage" type="CharacterBody2D" unique_id=747261156 groups=["Enemy"]]
 z_index = 10
-collision_layer = 4
+collision_layer = 256
 collision_mask = 3
 script = ExtResource("1_0xdm5")
 stats = SubResource("Resource_bbshb")

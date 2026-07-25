@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cvychnigncamp"]
+
+[ext_resource type="Script" uid="uid://b3w21u01vbmah" path="res://Scripts/damage.gd" id="1_g8cbs"]
+[ext_resource type="Texture2D" uid="uid://cnpscptf7ijyq" path="res://Assets/Potions/Potions_4.png" id="2_vc5tn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+
+[node name="Damage" type="Node2D" unique_id=1419943100]
+z_index = 10
+scale = Vector2(2.1666658, 2.1666658)
+script = ExtResource("1_g8cbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=414342540]
+texture_filter = 1
+texture = ExtResource("2_vc5tn")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1942142989]
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=136117634]
+position = Vector2(0, 1.9999999)
+scale = Vector2(2.2472725, 2.2472725)
+shape = SubResource("CircleShape2D_g4v7s")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

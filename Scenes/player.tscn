@@ -13,9 +13,13 @@
 [ext_resource type="Script" uid="uid://ctwimxcuoswnu" path="res://Scripts/gold_manager.gd" id="8_8erm5"]
 [ext_resource type="Script" uid="uid://c372g23no3j63" path="res://Scripts/score_manager.gd" id="12_ukyrk"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wuhkc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu2lt"]
 atlas = ExtResource("5_gymyn")
-region = Rect2(48, 0, 16, 24)
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukyrk"]
+atlas = ExtResource("5_gymyn")
+region = Rect2(16, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mf572"]
 atlas = ExtResource("5_gymyn")
@@ -25,25 +29,25 @@ region = Rect2(0, 24, 16, 24)
 atlas = ExtResource("5_gymyn")
 region = Rect2(16, 24, 16, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sn7lv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dp3o"]
 atlas = ExtResource("5_gymyn")
-region = Rect2(0, 0, 16, 24)
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_57bys"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4iuc"]
 atlas = ExtResource("5_gymyn")
-region = Rect2(16, 0, 16, 24)
+region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xc1ca"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd4e3"]
 atlas = ExtResource("5_gymyn")
-region = Rect2(32, 0, 16, 24)
+region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gskg2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqcod"]
 atlas = ExtResource("5_gymyn")
-region = Rect2(48, 0, 16, 24)
+region = Rect2(48, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cjc2d"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_igrcy"]
 atlas = ExtResource("5_gymyn")
-region = Rect2(64, 0, 16, 24)
+region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v2xu8"]
 atlas = ExtResource("5_gymyn")
@@ -69,7 +73,10 @@ region = Rect2(64, 0, 16, 24)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wuhkc")
+"texture": SubResource("AtlasTexture_pu2lt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukyrk")
 }],
 "loop": 1,
 "name": &"idle",
@@ -88,19 +95,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sn7lv")
+"texture": SubResource("AtlasTexture_7dp3o")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_57bys")
+"texture": SubResource("AtlasTexture_h4iuc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xc1ca")
+"texture": SubResource("AtlasTexture_fd4e3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gskg2")
+"texture": SubResource("AtlasTexture_qqcod")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cjc2d")
+"texture": SubResource("AtlasTexture_igrcy")
 }],
 "loop": 1,
 "name": &"running",
@@ -128,14 +135,14 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(30, 38)
+size = Vector2(42, 43)
 
 [node name="Player" type="CharacterBody2D" unique_id=343586213 groups=["Player"]]
-collision_layer = 2
+collision_layer = 8
 collision_mask = 5
 script = ExtResource("1_3smsa")
 damage = 50.0
-arrow_speed = 150.0
+arrow_speed = 600.0
 
 [node name="IGUI" type="Control" parent="." unique_id=286639759]
 layout_mode = 3
@@ -180,9 +187,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 293.00003
+offset_left = 306.00003
 offset_top = -518.00006
-offset_right = 461.00003
+offset_right = 474.00003
 offset_bottom = -495.00006
 grow_horizontal = 0
 scale = Vector2(2.192007, 2.192007)
@@ -200,6 +207,8 @@ script = ExtResource("3_f1ek2")
 position = Vector2(59.999996, -17)
 rotation = -3.1415925
 scale = Vector2(2.6476202, 1.0366771)
+arrow_damage = 100
+arrow_speed = 2
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player Center/Bow" unique_id=1741996759]
 stream = ExtResource("5_f1ek2")
@@ -211,12 +220,12 @@ texture_filter = 1
 position = Vector2(-1, 0)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
-animation = &"walking"
+animation = &"running"
 autoplay = "idle"
 flip_h = true
 
 [node name="HurtBox" type="CollisionShape2D" parent="." unique_id=333263936]
-position = Vector2(2, -12)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=450516253 node_paths=PackedStringArray("body", "sprite")]

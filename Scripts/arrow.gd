@@ -2,9 +2,9 @@ extends Node2D
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
-@export var speed := 600.0
+var speed := 600.0
 @export var gravity := 50.0
-@export var damage := 50.0
+var damage := 50.0
 
 var velocity := Vector2.ZERO
 
@@ -22,6 +22,8 @@ func set_direction(dir: Vector2):
 
 func _on_area_2d_body_entered(body: Node2D):
 	var health_component = body.get_node_or_null("HealthComponent")
+	print(damage)
+	print(speed)
 	if health_component:
 		health_component.take_damage(damage)
 

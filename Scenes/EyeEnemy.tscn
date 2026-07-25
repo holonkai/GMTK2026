@@ -13,9 +13,13 @@
 
 [sub_resource type="Resource" id="Resource_bdh0s"]
 script = ExtResource("2_8k66w")
+health = 130.0
+acceleration = 400
 gold_drop = 100
 points = 40
 metadata/_custom_type_script = "uid://bgd6bykhc4hw0"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rk1hq"]
 atlas = ExtResource("1_ywwwk")
@@ -194,16 +198,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
-
 [node name="EyeEnemy" type="CharacterBody2D" unique_id=2011999476 node_paths=PackedStringArray("movement_component", "health_component") groups=["Enemy"]]
 z_index = 10
-collision_layer = 4
-collision_mask = 2
+position = Vector2(-5, 1)
+collision_layer = 256
+collision_mask = 10
 script = ExtResource("1_djke3")
 movement_component = NodePath("MovementComponent")
 health_component = NodePath("HealthComponent")
 stats = SubResource("Resource_bdh0s")
+
+[node name="Hurtbox" type="CollisionShape2D" parent="." unique_id=782808838]
+position = Vector2(5, 5)
+scale = Vector2(1.2539845, 1.216749)
+shape = SubResource("CircleShape2D_g4v7s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=482745873]
 texture_filter = 1
@@ -223,18 +231,13 @@ metadata/_custom_type_script = "uid://djan46kn5o0wl"
 [node name="Hitbox" parent="." unique_id=85957042 instance=ExtResource("5_8vu1x")]
 position = Vector2(5.0000005, 5)
 scale = Vector2(1.90471, 2.068311)
-damage = 50.0
+damage = 40.0
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1933078463 node_paths=PackedStringArray("body", "sprite")]
 script = ExtResource("1_8vu1x")
 body = NodePath("..")
 sprite = NodePath("../AnimatedSprite2D")
 metadata/_custom_type_script = "uid://d00v7kh56mbly"
-
-[node name="Hurtbox" type="CollisionShape2D" parent="." unique_id=782808838]
-position = Vector2(5, 5)
-scale = Vector2(1.2539845, 1.216749)
-shape = SubResource("CircleShape2D_g4v7s")
 
 [node name="HealthBar" parent="." unique_id=1153427640 instance=ExtResource("8_yis2q")]
 offset_left = -7.000001

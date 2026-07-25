@@ -48,7 +48,7 @@ func _process(delta: float) -> void:
 		has_jumped = true
 	elif middleraycast.is_colliding() and not is_on_floor() and not has_jumped:
 		walking_movement_component.can_move = false
-	elif walking_movement_component.distance.length() < 400:
+	elif walking_movement_component.distance.length() < 500:
 		if can_shoot:
 			shoot()
 		walking_movement_component.can_move = false

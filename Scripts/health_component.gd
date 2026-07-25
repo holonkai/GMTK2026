@@ -14,7 +14,17 @@ func take_damage(damage: float) -> void:
 	current_health = clamp(current_health - damage, 0, max_health)
 	if current_health == 0:
 		died.emit()
+	else:
+		health_changed.emit(max_health, current_health)
+		sprite.modulate = ("red")
+		await get_tree().create_timer(0.5).timeout
+		sprite.modulate = ("white")
+
+func add_health(amount: float) -> void:
+	current_health = clamp(current_health + amount, 0, max_health)
+	if current_health == 0:
+		died.emit()
 	health_changed.emit(max_health, current_health)
-	sprite.modulate = ("red")
+	sprite.modulate = ("green")
 	await get_tree().create_timer(0.5).timeout
 	sprite.modulate = ("white")

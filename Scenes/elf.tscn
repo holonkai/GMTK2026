@@ -35,7 +35,7 @@
 
 [sub_resource type="Resource" id="Resource_g4v7s"]
 script = ExtResource("2_ub3eg")
-health = 50.0
+health = 30.0
 projectile_speed = 150
 points = 30
 metadata/_custom_type_script = "uid://bgd6bykhc4hw0"
@@ -238,8 +238,8 @@ animations = [{
 [node name="ELF" type="CharacterBody2D" unique_id=1821168565]
 z_index = 10
 scale = Vector2(2.5999994, 2.5999994)
-collision_layer = 4
-collision_mask = 3
+collision_layer = 256
+collision_mask = 7
 script = ExtResource("1_v26di")
 stats = SubResource("Resource_g4v7s")
 
@@ -294,7 +294,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1091935633]
 stream = ExtResource("31_b8027")
-volume_db = 23.049
+volume_db = 2.811
 
 [node name="Death SFX" type="AudioStreamPlayer2D" parent="." unique_id=1585979966]
 stream = ExtResource("32_nwx7a")

@@ -39,6 +39,7 @@ func shoot() -> void:
 
 	arrow_instance.global_position = arrow_loc.global_position
 	arrow_instance.damage = arrow_damage
+	arrow_instance.speed = arrow_speed
 	arrow_instance.set_direction((get_global_mouse_position() - arrow_instance.global_position).normalized())
 
 
