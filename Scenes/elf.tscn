@@ -37,6 +37,7 @@
 script = ExtResource("2_ub3eg")
 health = 50.0
 projectile_speed = 150
+points = 30
 metadata/_custom_type_script = "uid://bgd6bykhc4hw0"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ef5jg"]
@@ -275,9 +276,10 @@ wait_time = 3.0
 [node name="bow" type="Marker2D" parent="." unique_id=1346322741]
 position = Vector2(9, 1)
 
-[node name="HealthComponent" type="Node" parent="." unique_id=482835864 node_paths=PackedStringArray("body")]
+[node name="HealthComponent" type="Node" parent="." unique_id=482835864 node_paths=PackedStringArray("body", "sprite")]
 script = ExtResource("29_nwx7a")
 body = NodePath("..")
+sprite = NodePath("../AnimatedSprite2D")
 metadata/_custom_type_script = "uid://d00v7kh56mbly"
 
 [node name="Firerate" type="Timer" parent="." unique_id=438820950]

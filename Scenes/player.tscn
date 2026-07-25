@@ -2,13 +2,16 @@
 
 [ext_resource type="Script" uid="uid://dj1ugevvulse6" path="res://Scripts/player.gd" id="1_3smsa"]
 [ext_resource type="AudioStream" uid="uid://dchdjlsgyqmod" path="res://Assets/Sounds/Player/404793__owlstorm__retro-video-game-sfx-jump.wav" id="2_8erm5"]
+[ext_resource type="PackedScene" uid="uid://cqupesepa1ci2" path="res://Scenes/health_bar.tscn" id="2_tx1dd"]
 [ext_resource type="Script" uid="uid://vq3og2vrd3wo" path="res://Scripts/player_center.gd" id="3_f1ek2"]
+[ext_resource type="FontFile" uid="uid://bnhsatuqlcu8t" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="3_pu2lt"]
 [ext_resource type="PackedScene" uid="uid://b5g0encrr2osg" path="res://Scenes/bow.tscn" id="4_tx1dd"]
 [ext_resource type="AudioStream" uid="uid://6u6glbjggtqq" path="res://Assets/Sounds/542559__matthewholdensound__owi_bow-string-thwang.wav" id="5_f1ek2"]
 [ext_resource type="Texture2D" uid="uid://byebe18b8pgqn" path="res://Assets/Images/Player/Elf Sprite Sheet.png" id="5_gymyn"]
 [ext_resource type="Script" uid="uid://d00v7kh56mbly" path="res://Scripts/health_component.gd" id="6_pu2lt"]
 [ext_resource type="PackedScene" uid="uid://btcbgi5574htf" path="res://Scenes/pause_menu.tscn" id="7_ukyrk"]
 [ext_resource type="Script" uid="uid://ctwimxcuoswnu" path="res://Scripts/gold_manager.gd" id="8_8erm5"]
+[ext_resource type="Script" uid="uid://c372g23no3j63" path="res://Scenes/score_manager.gd" id="12_ukyrk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wuhkc"]
 atlas = ExtResource("5_gymyn")
@@ -134,6 +137,58 @@ script = ExtResource("1_3smsa")
 damage = 50.0
 arrow_speed = 150.0
 
+[node name="IGUI" type="Control" parent="." unique_id=286639759]
+layout_mode = 3
+anchors_preset = 0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="IGUI" unique_id=103167322]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HealthBar" parent="IGUI" unique_id=1153427640 instance=ExtResource("2_tx1dd")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -390.99997
+offset_top = -467.00006
+offset_right = -386.99997
+offset_bottom = -440.00006
+grow_horizontal = 2
+scale = Vector2(12.813802, 24.080719)
+
+[node name="Score" type="Label" parent="IGUI" unique_id=1426671529]
+texture_filter = 1
+layout_mode = 0
+offset_left = -947.0
+offset_top = -523.0
+offset_right = -847.0
+offset_bottom = -500.0
+scale = Vector2(2.4800005, 2.4800005)
+theme_override_fonts/font = ExtResource("3_pu2lt")
+text = "Score: "
+
+[node name="HighScore" type="Label" parent="IGUI" unique_id=1528125076]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 293.00003
+offset_top = -518.00006
+offset_right = 461.00003
+offset_bottom = -495.00006
+grow_horizontal = 0
+scale = Vector2(2.192007, 2.192007)
+theme_override_fonts/font = ExtResource("3_pu2lt")
+text = "High Score :"
+
 [node name="JumpSFX" type="AudioStreamPlayer2D" parent="." unique_id=1498919577]
 stream = ExtResource("2_8erm5")
 bus = &"SFX"
@@ -164,9 +219,10 @@ flip_h = true
 position = Vector2(2, -12)
 shape = SubResource("RectangleShape2D_g4v7s")
 
-[node name="HealthComponent" type="Node" parent="." unique_id=450516253 node_paths=PackedStringArray("body")]
+[node name="HealthComponent" type="Node" parent="." unique_id=450516253 node_paths=PackedStringArray("body", "sprite")]
 script = ExtResource("6_pu2lt")
 body = NodePath("..")
+sprite = NodePath("../AnimatedSprite2D")
 metadata/_custom_type_script = "uid://d00v7kh56mbly"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=482203568]
@@ -177,6 +233,9 @@ offset_bottom = -7.0
 
 [node name="GoldManager" type="Node2D" parent="." unique_id=838716076]
 script = ExtResource("8_8erm5")
+
+[node name="ScoreManager" type="Node2D" parent="." unique_id=878538810]
+script = ExtResource("12_ukyrk")
 
 [connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
 [connection signal="health_changed" from="HealthComponent" to="." method="_on_health_component_health_changed"]

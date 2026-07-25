@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://donvvo4dt8ain"]
+
+[ext_resource type="FontFile" uid="uid://bnhsatuqlcu8t" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="1_hnwbn"]
+[ext_resource type="Script" uid="uid://dn358h48p6y6h" path="res://Scripts/Enemy Scripts/score_text.gd" id="2_qcrpo"]
+
+[sub_resource type="Animation" id="Animation_nyw14"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.49803922)]
+}
+
+[sub_resource type="Animation" id="Animation_k12a1"]
+resource_name = "Score"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [null, Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.49803922), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pnoef"]
+_data = {
+&"RESET": SubResource("Animation_nyw14"),
+&"Score": SubResource("Animation_k12a1")
+}
+
+[node name="Score" type="Label" unique_id=850782131]
+modulate = Color(1, 1, 1, 0.49803922)
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(1.9600005, 1.9600005)
+theme_override_fonts/font = ExtResource("1_hnwbn")
+text = "20 +"
+script = ExtResource("2_qcrpo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=381755572]
+libraries/ = SubResource("AnimationLibrary_pnoef")
+autoplay = &"Score"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

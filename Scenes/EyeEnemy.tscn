@@ -14,6 +14,7 @@
 [sub_resource type="Resource" id="Resource_bdh0s"]
 script = ExtResource("2_8k66w")
 gold_drop = 100
+points = 40
 metadata/_custom_type_script = "uid://bgd6bykhc4hw0"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rk1hq"]
@@ -224,9 +225,10 @@ position = Vector2(5.0000005, 5)
 scale = Vector2(1.90471, 2.068311)
 damage = 50.0
 
-[node name="HealthComponent" type="Node" parent="." unique_id=1933078463 node_paths=PackedStringArray("body")]
+[node name="HealthComponent" type="Node" parent="." unique_id=1933078463 node_paths=PackedStringArray("body", "sprite")]
 script = ExtResource("1_8vu1x")
 body = NodePath("..")
+sprite = NodePath("../AnimatedSprite2D")
 metadata/_custom_type_script = "uid://d00v7kh56mbly"
 
 [node name="Hurtbox" type="CollisionShape2D" parent="." unique_id=782808838]

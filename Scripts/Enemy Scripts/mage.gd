@@ -16,10 +16,13 @@ extends CharacterBody2D
 
 var can_shoot:= true
 var fireball_speed:float 
+
 var fireball = preload("res://Scenes/fire_ball.tscn")
+var score_text = preload("res://Scenes/score.tscn")
 var is_alive:= true
 var has_jumped:= false
 
+var score_amount: int
 var gold_give: int
 
 func _ready() -> void:
@@ -31,6 +34,7 @@ func _ready() -> void:
 	fireball_speed = stats.projectile_speed
 	health_bar.max_value = health_component.max_health
 	gold_give = stats.gold_drop
+	score_amount = stats.points
 	
 func _process(delta: float) -> void:
 	health_bar.value = health_component.current_health
@@ -76,9 +80,16 @@ func _on_fire_rate_timeout() -> void:
 
 func _on_health_component_died() -> void:
 	death_sfx.play(0.0)
+	var score_text_instance = score_text.instantiate()
+	get_tree().current_scene.add_child(score_text_instance)
+	score_text_instance.global_position = global_position - Vector2(50,100)
+	score_text_instance.text = (str(score_amount) + "+")
 	animated_sprite_2d.play("Death")
+
+	
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	get_tree().get_first_node_in_group("Player").get_node_or_null("GoldManager").gain_gold(gold_give)
+	get_tree().get_first_node_in_group("Player").get_node_or_null("ScoreManager").add_to_score(score_amount)
 	queue_free()

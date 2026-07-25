@@ -6,3 +6,4 @@ class_name EnemyStats extends Resource
 @export var jumpheight:= 500
 @export var projectile_speed := 50
 @export var gold_drop := 50 
+@export var points:=  20

@@ -187,9 +187,10 @@ wait_time = 5.0
 position = Vector2(34, -34.000004)
 scale = Vector2(-53.69639, -1.9874105)
 
-[node name="HealthComponent" type="Node" parent="." unique_id=1747789606 node_paths=PackedStringArray("body")]
+[node name="HealthComponent" type="Node" parent="." unique_id=1747789606 node_paths=PackedStringArray("body", "sprite")]
 script = ExtResource("5_254od")
 body = NodePath("..")
+sprite = NodePath("../AnimatedSprite2D")
 metadata/_custom_type_script = "uid://d00v7kh56mbly"
 
 [node name="HealthBar" parent="." unique_id=1153427640 instance=ExtResource("6_qippj")]

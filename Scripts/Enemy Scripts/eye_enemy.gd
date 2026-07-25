@@ -10,15 +10,17 @@ extends CharacterBody2D
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var death_sound: AudioStreamPlayer2D = $"Death sound"
 
+var score_text = preload("res://Scenes/score.tscn")
 var sound_played:= false
 var gold_give: int
+var score_amount: int
 func _ready() -> void:
 	health_component.max_health = stats.health
 	health_component.current_health = health_component.max_health
 	movement_component.speed = stats.speed
 	health_bar.max_value = health_component.max_health
 	gold_give = stats.gold_drop
-
+	score_amount = stats.points
 func _process(delta: float) -> void:
 	health_bar.value = health_component.current_health
 	if movement_component.dir.length() < 300:
@@ -38,6 +40,10 @@ func _on_health_component_died() -> void:
 	hitbox.queue_free()
 	hurtbox.queue_free()
 	death_sound.play(0.0)
+	var score_text_instance = score_text.instantiate()
+	get_tree().current_scene.add_child(score_text_instance)
+	score_text_instance.global_position = global_position - Vector2(50,100)
+	score_text_instance.text = (str(score_amount) + "+")
 	animated_sprite_2d.play("Death")
 	
 	
@@ -45,6 +51,7 @@ func _on_health_component_died() -> void:
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	get_tree().get_first_node_in_group("Player").get_node_or_null("GoldManager").gain_gold(gold_give)
+	get_tree().get_first_node_in_group("Player").get_node_or_null("ScoreManager").add_to_score(score_amount)
 	queue_free()
 
 

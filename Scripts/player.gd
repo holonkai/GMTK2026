@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var pause_menu: Control = $PauseMenu
 @onready var gold_manager: Node2D = $GoldManager
 @onready var health_component: HealthComponent = $HealthComponent
+@onready var health_bar: ProgressBar = $IGUI/HealthBar
 
 
 const SPEED := 300.0
@@ -83,6 +84,7 @@ func _on_health_component_health_changed(max: Variant, current: Variant) -> void
 		gold_manager.lose_gold(loss_amount)
 	elif current > old_health:
 		gold_manager.gain_gold(gain_amount)
+	health_bar.value = current
 	old_health = current
 
 

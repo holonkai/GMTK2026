@@ -2,6 +2,7 @@ class_name HealthComponent extends Node
 
 @export var max_health := 100.0
 @export var body: CharacterBody2D
+@export var sprite: AnimatedSprite2D
 
 var current_health := 100.0
 
@@ -14,6 +15,6 @@ func take_damage(damage: float) -> void:
 	if current_health == 0:
 		died.emit()
 	health_changed.emit(max_health, current_health)
-	body.modulate = ("red")
+	sprite.modulate = ("red")
 	await get_tree().create_timer(0.5).timeout
-	body.modulate = ("white")
+	sprite.modulate = ("white")
