@@ -109,6 +109,7 @@ _data = {
 }
 
 [node name="PauseMenu" type="Control" unique_id=1812448805]
+process_mode = 3
 modulate = Color(1, 1, 1, 0)
 z_index = 100
 layout_mode = 3
