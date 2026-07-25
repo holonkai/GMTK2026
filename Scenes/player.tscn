@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://d00v7kh56mbly" path="res://Scripts/health_component.gd" id="6_pu2lt"]
 [ext_resource type="PackedScene" uid="uid://btcbgi5574htf" path="res://Scenes/pause_menu.tscn" id="7_ukyrk"]
 [ext_resource type="Script" uid="uid://ctwimxcuoswnu" path="res://Scripts/gold_manager.gd" id="8_8erm5"]
-[ext_resource type="Script" uid="uid://c372g23no3j63" path="res://Scenes/score_manager.gd" id="12_ukyrk"]
+[ext_resource type="Script" uid="uid://c372g23no3j63" path="res://Scripts/score_manager.gd" id="12_ukyrk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wuhkc"]
 atlas = ExtResource("5_gymyn")

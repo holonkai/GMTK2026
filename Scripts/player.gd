@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 	bow.arrow_damage = damage
 	bow.arrow_speed = arrow_speed
 	if global_position.y > 1600:  
-		get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
+		get_tree().change_scene_to_file("res://lose_screen.tscn")
 	# Animation
 	if velocity.x > 1 or velocity.x < -1:
 		if Input.is_action_pressed("Run"):

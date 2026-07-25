@@ -22,7 +22,6 @@ func _process(_delta: float) -> void:
 		pass
 		countdown.text = ""
 		
-
 func trigger_block_disappear() -> void:
 	if not is_timer_active:
 		is_timer_active = true

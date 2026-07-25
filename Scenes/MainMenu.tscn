@@ -93,8 +93,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_xwc3d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/Panel" unique_id=552260680]
 texture_filter = 1
-position = Vector2(422.12503, 659.63544)
-scale = Vector2(38.765625, 31.091007)
+position = Vector2(458, 659.99994)
+scale = Vector2(26.374996, 20.526312)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"mainmenu"
 autoplay = "mainmenu"
@@ -137,11 +137,11 @@ layout_mode = 2
 [node name="Hunter\'sEmbrace" type="Sprite2D" parent="." unique_id=905786654]
 visible = false
 texture_filter = 1
-position = Vector2(1371, 513)
-scale = Vector2(8.0625, 7.375)
+position = Vector2(1484, 596)
+scale = Vector2(15.125, 14.125001)
 texture = ExtResource("5_df05h")
 
-[node name="Label" type="Label" parent="." unique_id=1678693235]
+[node name="Title" type="Label" parent="." unique_id=1678693235]
 layout_mode = 0
 offset_left = 229.0
 offset_top = 166.0
