@@ -3,18 +3,56 @@
 [ext_resource type="Script" uid="uid://daatftchak3b2" path="res://Scripts/menu.gd" id="1_i26rj"]
 [ext_resource type="FontFile" uid="uid://bnhsatuqlcu8t" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="2_8saeu"]
 [ext_resource type="Texture2D" uid="uid://4q0ol4g55ptf" path="res://UI Box.png" id="2_eiy7p"]
+[ext_resource type="Texture2D" uid="uid://byebe18b8pgqn" path="res://Assets/Images/Player/Elf Sprite Sheet.png" id="2_ghw46"]
+[ext_resource type="Texture2D" uid="uid://cniw2u7gjybvd" path="res://Assets/Images/Player/Hunter's Embrace.png" id="5_df05h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwc3d"]
 bg_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nwcfo"]
-texture = ExtResource("2_eiy7p")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_df05h"]
+atlas = ExtResource("2_ghw46")
+region = Rect2(0, 0, 16, 19)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p81d2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8um5k"]
+atlas = ExtResource("2_ghw46")
+region = Rect2(16, 0, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xim88"]
+atlas = ExtResource("2_ghw46")
+region = Rect2(32, 0, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_koqhg"]
+atlas = ExtResource("2_ghw46")
+region = Rect2(48, 0, 16, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmrfp"]
+atlas = ExtResource("2_ghw46")
+region = Rect2(64, 0, 16, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_df05h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8um5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xim88")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_koqhg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmrfp")
+}],
+"loop": 1,
+"name": &"mainmenu",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nwcfo"]
 texture = ExtResource("2_eiy7p")
 texture_margin_left = 16.0
 texture_margin_top = 16.0
@@ -28,13 +66,9 @@ texture_margin_top = 16.0
 texture_margin_right = 16.0
 texture_margin_bottom = 16.0
 
-[sub_resource type="Animation" id="Animation_8saeu"]
-resource_name = "mainmenu"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ghw46"]
-_data = {
-&"mainmenu": SubResource("Animation_8saeu")
-}
+[sub_resource type="LabelSettings" id="LabelSettings_yf5fn"]
+font = ExtResource("2_8saeu")
+font_size = 75
 
 [node name="MainMenu" type="Control" unique_id=1252046952]
 layout_mode = 3
@@ -57,6 +91,14 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xwc3d")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/Panel" unique_id=552260680]
+texture_filter = 1
+position = Vector2(422.12503, 659.63544)
+scale = Vector2(38.765625, 31.091007)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"mainmenu"
+autoplay = "mainmenu"
+
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1448424323]
 custom_minimum_size = Vector2(410.13, 239.745)
 layout_mode = 2
@@ -76,18 +118,6 @@ theme_override_styles/disabled = SubResource("StyleBoxTexture_nwcfo")
 theme_override_styles/focus = SubResource("StyleBoxTexture_nwcfo")
 text = "Play"
 
-[node name="Tutorial" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1032192580]
-custom_minimum_size = Vector2(55.81, 99.85)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_8saeu")
-theme_override_font_sizes/font_size = 105
-theme_override_styles/normal = SubResource("StyleBoxTexture_p81d2")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_p81d2")
-theme_override_styles/hover = SubResource("StyleBoxTexture_p81d2")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_p81d2")
-theme_override_styles/focus = SubResource("StyleBoxTexture_p81d2")
-text = "Tutorial"
-
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=2042711866]
 custom_minimum_size = Vector2(55.81, 99.85)
 layout_mode = 2
@@ -104,9 +134,21 @@ text = "Quit
 [node name="HighScoreLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1529510173]
 layout_mode = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=569245411]
-libraries/ = SubResource("AnimationLibrary_ghw46")
+[node name="Hunter\'sEmbrace" type="Sprite2D" parent="." unique_id=905786654]
+visible = false
+texture_filter = 1
+position = Vector2(1371, 513)
+scale = Vector2(8.0625, 7.375)
+texture = ExtResource("5_df05h")
+
+[node name="Label" type="Label" parent="." unique_id=1678693235]
+layout_mode = 0
+offset_left = 229.0
+offset_top = 166.0
+offset_right = 1729.0
+offset_bottom = 261.0
+text = "Fairy Realm of Seconds"
+label_settings = SubResource("LabelSettings_yf5fn")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
