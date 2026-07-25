@@ -4,9 +4,11 @@
 [ext_resource type="AudioStream" uid="uid://dchdjlsgyqmod" path="res://Assets/Sounds/Player/404793__owlstorm__retro-video-game-sfx-jump.wav" id="2_8erm5"]
 [ext_resource type="Script" uid="uid://vq3og2vrd3wo" path="res://Scripts/player_center.gd" id="3_f1ek2"]
 [ext_resource type="PackedScene" uid="uid://b5g0encrr2osg" path="res://Scenes/bow.tscn" id="4_tx1dd"]
+[ext_resource type="AudioStream" uid="uid://6u6glbjggtqq" path="res://Assets/Sounds/542559__matthewholdensound__owi_bow-string-thwang.wav" id="5_f1ek2"]
 [ext_resource type="Texture2D" uid="uid://byebe18b8pgqn" path="res://Assets/Images/Player/Elf Sprite Sheet.png" id="5_gymyn"]
 [ext_resource type="Script" uid="uid://d00v7kh56mbly" path="res://Scripts/health_component.gd" id="6_pu2lt"]
 [ext_resource type="PackedScene" uid="uid://btcbgi5574htf" path="res://Scenes/pause_menu.tscn" id="7_ukyrk"]
+[ext_resource type="Script" uid="uid://ctwimxcuoswnu" path="res://Scripts/gold_manager.gd" id="8_8erm5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wuhkc"]
 atlas = ExtResource("5_gymyn")
@@ -129,6 +131,8 @@ size = Vector2(30, 38)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_3smsa")
+damage = 50.0
+arrow_speed = 150.0
 
 [node name="JumpSFX" type="AudioStreamPlayer2D" parent="." unique_id=1498919577]
 stream = ExtResource("2_8erm5")
@@ -141,6 +145,11 @@ script = ExtResource("3_f1ek2")
 position = Vector2(59.999996, -17)
 rotation = -3.1415925
 scale = Vector2(2.6476202, 1.0366771)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player Center/Bow" unique_id=1741996759]
+stream = ExtResource("5_f1ek2")
+volume_db = 7.913
+bus = &"SFX"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=727692499]
 texture_filter = 1
@@ -165,3 +174,9 @@ metadata/_custom_type_script = "uid://d00v7kh56mbly"
 [node name="PauseMenu" parent="." unique_id=1812448805 instance=ExtResource("7_ukyrk")]
 offset_top = -7.0
 offset_bottom = -7.0
+
+[node name="GoldManager" type="Node2D" parent="." unique_id=838716076]
+script = ExtResource("8_8erm5")
+
+[connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
+[connection signal="health_changed" from="HealthComponent" to="." method="_on_health_component_health_changed"]

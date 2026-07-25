@@ -2,8 +2,10 @@ extends Node2D
 
 @onready var arrow_loc: Marker2D = $ArrowLoc
 @onready var fire_rate: Timer = $FireRate
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var arrow := preload("res://Scenes/arrow.tscn")
+@export var arrow_damage:= 50
 @export var arrow_speed := 100
 var wants_shoot:= false
 var can_shoot := true
@@ -28,13 +30,15 @@ func _physics_process(delta: float) -> void:
 
 
 func shoot() -> void:
+	audio_stream_player_2d.pitch_scale = randf_range(.8,1.2)
+	audio_stream_player_2d.play(0.0)
 	fire_rate.start()
 	can_shoot = false
 	var arrow_instance = arrow.instantiate()
 	get_tree().current_scene.add_child(arrow_instance)
 
 	arrow_instance.global_position = arrow_loc.global_position
-
+	arrow_instance.damage = arrow_damage
 	arrow_instance.set_direction((get_global_mouse_position() - arrow_instance.global_position).normalized())
 
 

@@ -41,9 +41,11 @@ animations = [{
 }]
 
 [node name="FireBall" type="Node2D" unique_id=1129660798]
+scale = Vector2(1.8028172, 1.8028172)
 script = ExtResource("1_x8156")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1122308400]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 autoplay = "default"
 frame = 3

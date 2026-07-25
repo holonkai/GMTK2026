@@ -3,6 +3,8 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var jump_sfx: AudioStreamPlayer2D = $JumpSFX
 @onready var pause_menu: Control = $PauseMenu
+@onready var gold_manager: Node2D = $GoldManager
+@onready var health_component: HealthComponent = $HealthComponent
 
 
 const SPEED := 300.0
@@ -10,13 +12,23 @@ const FRICTION := 1200.0
 const ACCELERATION := 800.0
 const JUMP_VELOCITY := -1500.0
 
+@export var damage: float
+@export var arrow_speed: float
+@export var loss_amount:= 50
+@export var gain_amount:= 100
+var old_health: float
+
 func _ready() -> void:
 	pause_menu.hide()
+	old_health = health_component.max_health
 	
 func _dead():
 	pass
 	
 func _physics_process(delta: float) -> void:
+	var bow = get_node_or_null("Player Center/Bow")
+	bow.arrow_damage = damage
+	bow.arrow_speed = arrow_speed
 	if global_position.y > 1600:  
 		get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
 	# Animation
@@ -59,3 +71,15 @@ func _on_foot_sensor_body_entered(body: Node2D) -> void:
 	if body is TileMapLayer:
 		if get_parent().has_method("trigger_block_disappear"):
 			get_parent().trigger_block_disappear()
+
+
+func _on_health_component_health_changed(max: Variant, current: Variant) -> void:
+	if current < old_health:
+		gold_manager.lose_gold(loss_amount)
+	elif current > old_health:
+		gold_manager.gain_gold(gain_amount)
+	old_health = current
+
+
+func _on_health_component_died() -> void:
+	_dead()

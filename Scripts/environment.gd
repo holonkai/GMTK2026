@@ -30,7 +30,6 @@ func trigger_block_disappear() -> void:
 
 func _on_timer_timeout() -> void:
 	current_index = (current_index + 1) % layers.size()
-	print(current_index)
 	# Want to update the layer mask first maybe an animation
 	_update_active_layer()
 	timer.start(10.0)

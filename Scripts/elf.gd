@@ -11,6 +11,8 @@ extends CharacterBody2D
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var health_bar: ProgressBar = $HealthBar
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var death_sfx: AudioStreamPlayer2D = $"Death SFX"
 
 var can_shoot:= true
 var arrow_speed:float 
@@ -18,6 +20,8 @@ var arrow = preload("res://Scenes/enemy_arrow.tscn")
 var is_alive:= true
 var has_jumped:= false
 
+var gold_give: int
+var gold_take: int
 func _ready() -> void:
 	walking_movement_component.SPEED = stats.speed
 	walking_movement_component.JUMPHEIGHT = stats.jumpheight
@@ -26,6 +30,7 @@ func _ready() -> void:
 	health_component.current_health = health_component.max_health
 	arrow_speed = stats.projectile_speed
 	health_bar.max_value = health_component.max_health
+	gold_give = stats.gold_drop
 func _process(delta: float) -> void:
 	health_bar.value = health_component.current_health
 	if not is_alive:
@@ -53,6 +58,8 @@ func _on_jump_timer_timeout() -> void:
 	has_jumped = false
 
 func shoot():
+	audio_stream_player_2d.pitch_scale = randf_range(.8,1.2)
+	audio_stream_player_2d.play(0.0)
 	animated_sprite_2d.play("Fire")
 	firerate.start()
 	can_shoot = false
@@ -65,6 +72,8 @@ func shoot():
 
 func _on_health_component_died() -> void:
 	is_alive = false
+	death_sfx.play(0.0)
+	get_tree().get_first_node_in_group("Player").get_node_or_null("GoldManager").gain_gold(gold_give)
 	animated_sprite_2d.play("Death")
 
 
