@@ -15,9 +15,17 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	score_text.text = ("Score: " + str(score))
+	score_text.text = "Score: " + str(score)
 	if score > high_score:
-		high_score_text.text = ("High Score: " + str(score))
+		high_score = score
+		high_score_text.text = "High Score: " + str(high_score)
+		save_high_score()
+
+func save_high_score() -> void:
+	var config := ConfigFile.new()
+	config.load("user://savegame.cfg")
+	config.set_value("save", "high_score", high_score)
+	config.save("user://savegame.cfg")
 
 func add_to_score(amount: int) -> void:
 	score += amount
