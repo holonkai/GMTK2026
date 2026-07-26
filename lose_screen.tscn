@@ -4,9 +4,15 @@
 [ext_resource type="FontFile" uid="uid://bnhsatuqlcu8t" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="1_h3ym8"]
 [ext_resource type="Texture2D" uid="uid://byebe18b8pgqn" path="res://Assets/Images/Player/Elf Sprite Sheet.png" id="2_6mmkj"]
 [ext_resource type="Texture2D" uid="uid://4q0ol4g55ptf" path="res://UI Box.png" id="2_7hir2"]
+[ext_resource type="Texture2D" uid="uid://b5kmvdmi4e5kh" path="res://Assets/Images/Tilemap/Background5.png" id="2_ed4nj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14evm"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_14evm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8gtgy"]
+bg_color = Color(0.5529412, 0.3372549, 0, 0.38039216)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ed4nj"]
 atlas = ExtResource("2_6mmkj")
@@ -87,6 +93,22 @@ offset_transform_enabled = true
 [node name="Panel" type="Panel" parent="MarginContainer" unique_id=2095770414]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_14evm")
+
+[node name="Panel" type="Panel" parent="MarginContainer/Panel" unique_id=246981492]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 43.0
+offset_right = 5.0
+offset_bottom = 43.0
+theme = SubResource("Theme_14evm")
+theme_override_styles/panel = SubResource("StyleBoxFlat_8gtgy")
+
+[node name="Background5" type="Sprite2D" parent="MarginContainer/Panel/Panel" unique_id=208387177]
+modulate = Color(1, 0, 0, 1)
+texture_filter = 1
+position = Vector2(1000, 500)
+scale = Vector2(2.2618625, 1.716989)
+texture = ExtResource("2_ed4nj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/Panel" unique_id=614113153]
 texture_filter = 1

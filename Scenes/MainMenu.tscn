@@ -2,12 +2,15 @@
 
 [ext_resource type="Script" uid="uid://daatftchak3b2" path="res://Scripts/menu.gd" id="1_i26rj"]
 [ext_resource type="FontFile" uid="uid://bnhsatuqlcu8t" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="2_8saeu"]
+[ext_resource type="Texture2D" uid="uid://b5kmvdmi4e5kh" path="res://Assets/Images/Tilemap/Background5.png" id="2_8um5k"]
 [ext_resource type="Texture2D" uid="uid://4q0ol4g55ptf" path="res://UI Box.png" id="2_eiy7p"]
 [ext_resource type="Texture2D" uid="uid://byebe18b8pgqn" path="res://Assets/Images/Player/Elf Sprite Sheet.png" id="2_ghw46"]
 [ext_resource type="Texture2D" uid="uid://cniw2u7gjybvd" path="res://Assets/Images/Player/Hunter's Embrace.png" id="5_df05h"]
 
+[sub_resource type="Theme" id="Theme_xim88"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwc3d"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0.5529412, 0.3372549, 0, 0.38039216)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_df05h"]
 atlas = ExtResource("2_ghw46")
@@ -94,7 +97,14 @@ grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="MarginContainer" unique_id=2085573273]
 layout_mode = 2
+theme = SubResource("Theme_xim88")
 theme_override_styles/panel = SubResource("StyleBoxFlat_xwc3d")
+
+[node name="Background5" type="Sprite2D" parent="MarginContainer/Panel" unique_id=112525053]
+texture_filter = 2
+position = Vector2(965, 519)
+scale = Vector2(2.2618625, 1.876989)
+texture = ExtResource("2_8um5k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/Panel" unique_id=552260680]
 texture_filter = 1
