@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://b7h61itxg6yvy" path="res://Assets/Images/Tilemap/Background6.png" id="10_7ys8v"]
 [ext_resource type="AudioStream" uid="uid://dwdg6lc7ak15w" path="res://Assets/viacheslavstarostin-gaming-game-video-game-music-474517.mp3" id="13_1dkp5"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_bdh0s"]
 font = ExtResource("9_7ys8v")
 font_size = 30
@@ -6152,8 +6154,6 @@ sources/0 = SubResource("TileSetAtlasSource_1dkp5")
 sources/1 = SubResource("TileSetAtlasSource_jn2ok")
 sources/2 = SubResource("TileSetAtlasSource_jieww")
 
-[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
-
 [node name="background" type="Node2D" unique_id=1227561878]
 script = ExtResource("1_jieww")
 
@@ -6174,6 +6174,41 @@ autostart = true
 [node name="Player" parent="." unique_id=343586213 instance=ExtResource("1_7ys8v")]
 z_index = 10
 position = Vector2(82, -18)
+
+[node name="Control" type="Control" parent="Player" unique_id=537381154]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -263.0
+offset_right = -40.0
+offset_bottom = -263.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Player/Control" unique_id=983425606]
+z_index = 100
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -668.0
+offset_top = -11.5
+offset_right = -278.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.5600007, 3.5600007)
+theme_override_fonts/font = ExtResource("9_7ys8v")
+text = "Enemy Spawn Rate Increased"
+label_settings = SubResource("LabelSettings_g4v7s")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=121668227]
 repeat_size = Vector2(965, 0)
@@ -6251,6 +6286,7 @@ tile_map_data = PackedByteArray("AAAnAHsAAgA5ACEAAAAnAHwAAgA5ACIAAAAnAH0AAgA5ACM
 tile_set = SubResource("TileSet_g4v7s")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=812127218]
+position = Vector2(1, 0)
 stream = ExtResource("13_1dkp5")
 volume_db = -3.475
 autoplay = true
@@ -6258,37 +6294,6 @@ autoplay = true
 [node name="Increase enemies" type="Timer" parent="." unique_id=993290411]
 wait_time = 20.0
 autostart = true
-
-[node name="Control" type="Control" parent="." unique_id=537381154]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="Control" unique_id=983425606]
-z_index = 100
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -668.0
-offset_top = -11.5
-offset_right = -278.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(3.5600007, 3.5600007)
-theme_override_fonts/font = ExtResource("9_7ys8v")
-text = "Enemy Spawn Rate Increased"
-label_settings = SubResource("LabelSettings_g4v7s")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="timeout" from="DropsSpawner/dropsTimer" to="DropsSpawner" method="_on_drops_timer_timeout"]
 [connection signal="timeout" from="EnemySpawner/SpawnRate" to="EnemySpawner" method="_on_spawn_rate_timeout"]

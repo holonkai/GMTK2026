@@ -18,6 +18,7 @@ func spawn_enemy() -> void:
 	var enemy = enemies[i].instantiate()
 	add_child(enemy)
 	#puts the enemy at a random distance from the player
+	enemy.score_amount += 10
 	enemy.global_position = (get_tree().get_first_node_in_group("Player").global_position) - Vector2(randf_range(-1000,1000), randf_range(-1000,1000))
 	spawn_rate.start()
 

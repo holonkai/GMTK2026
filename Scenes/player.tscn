@@ -156,11 +156,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="IGUI" unique_id=103167322]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="HealthBar" parent="IGUI" unique_id=1153427640 instance=ExtResource("2_tx1dd")]
 layout_mode = 1
 anchors_preset = 5
@@ -190,9 +185,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 306.00003
+offset_left = 334.00003
 offset_top = -518.00006
-offset_right = 474.00003
+offset_right = 502.00003
 offset_bottom = -495.00006
 grow_horizontal = 0
 scale = Vector2(2.192007, 2.192007)
