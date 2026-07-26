@@ -69,6 +69,10 @@ texture_margin_top = 16.0
 texture_margin_right = 16.0
 texture_margin_bottom = 16.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font = ExtResource("2_8saeu")
+font_size = 40
+
 [sub_resource type="LabelSettings" id="LabelSettings_yf5fn"]
 font = ExtResource("2_8saeu")
 font_size = 75
@@ -143,6 +147,7 @@ text = "Quit
 
 [node name="HighScoreLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1529510173]
 layout_mode = 2
+label_settings = SubResource("LabelSettings_g4v7s")
 
 [node name="Hunter\'sEmbrace" type="Sprite2D" parent="." unique_id=905786654]
 visible = false
