@@ -144,6 +144,9 @@ script = ExtResource("1_3smsa")
 damage = 50.0
 arrow_speed = 600.0
 
+[node name="ScoreManager" type="Node2D" parent="." unique_id=878538810]
+script = ExtResource("12_ukyrk")
+
 [node name="IGUI" type="Control" parent="." unique_id=286639759]
 layout_mode = 3
 anchors_preset = 0
@@ -242,9 +245,6 @@ offset_bottom = -7.0
 
 [node name="GoldManager" type="Node2D" parent="." unique_id=838716076]
 script = ExtResource("8_8erm5")
-
-[node name="ScoreManager" type="Node2D" parent="." unique_id=878538810]
-script = ExtResource("12_ukyrk")
 
 [connection signal="died" from="HealthComponent" to="." method="_on_health_component_died"]
 [connection signal="health_changed" from="HealthComponent" to="." method="_on_health_component_health_changed"]
