@@ -72,6 +72,7 @@ texture_margin_bottom = 16.0
 [sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
 font = ExtResource("2_8saeu")
 font_size = 40
+font_color = Color(0.80694014, 0.12302076, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_yf5fn"]
 font = ExtResource("2_8saeu")

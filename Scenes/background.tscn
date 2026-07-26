@@ -6183,7 +6183,7 @@ repeat_times = 2
 texture_filter = 1
 texture_repeat = 2
 position = Vector2(1000, 500)
-scale = Vector2(2, 5)
+scale = Vector2(2, 6)
 texture = ExtResource("1_eq6nc")
 
 [node name="Parallax2D2" type="Parallax2D" parent="." unique_id=1564819357]
@@ -6193,7 +6193,7 @@ repeat_times = 2
 [node name="Background2" type="Sprite2D" parent="Parallax2D2" unique_id=1820209688]
 texture_filter = 1
 position = Vector2(1000, 500)
-scale = Vector2(2, 5)
+scale = Vector2(2, 6)
 texture = ExtResource("2_bpugw")
 
 [node name="Parallax2D3" type="Parallax2D" parent="." unique_id=980844500]
@@ -6214,7 +6214,7 @@ ignore_camera_scroll = true
 [node name="Background4" type="Sprite2D" parent="Parallax2D4" unique_id=2091644314]
 texture_filter = 1
 position = Vector2(1000, 500)
-scale = Vector2(2, 5)
+scale = Vector2(2, 6)
 texture = ExtResource("4_vvxqx")
 
 [node name="Parallax2D5" type="Parallax2D" parent="." unique_id=717902472]
@@ -6224,7 +6224,7 @@ repeat_times = 2
 [node name="Background5" type="Sprite2D" parent="Parallax2D5" unique_id=1989382776]
 texture_filter = 2
 position = Vector2(1000, 500)
-scale = Vector2(2, 5)
+scale = Vector2(2, 6)
 texture = ExtResource("5_cdpnt")
 
 [node name="Parallax2D6" type="Parallax2D" parent="." unique_id=1134236203]
