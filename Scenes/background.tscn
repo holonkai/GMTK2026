@@ -6264,7 +6264,7 @@ texture = ExtResource("5_cdpnt")
 
 [node name="Parallax2D6" type="Parallax2D" parent="." unique_id=1134236203]
 scroll_offset = Vector2(6, 6)
-repeat_size = Vector2(1600, 0)
+repeat_size = Vector2(1922, 0)
 
 [node name="environment" parent="Parallax2D6" unique_id=256658666 instance=ExtResource("6_bpugw")]
 position = Vector2(702, 18)
