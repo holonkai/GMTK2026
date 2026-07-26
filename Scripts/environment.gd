@@ -52,8 +52,7 @@ func _switch_layer(from_index: int, to_index: int) -> void:
 
 	new_layer.visible = true
 	new_layer.modulate.a = 0.0
-	new_layer.collision_enabled = true  # see note below
-
+	new_layer.collision_enabled = true  
 	var tween := create_tween()
 	tween.set_parallel(true)
 	tween.tween_property(old_layer, "modulate:a", 0.0, fade_duration)
